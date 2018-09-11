@@ -1,0 +1,8 @@
+# Builds
+release/
+lib/
+debug/
+
+# Visual Studio Code
+.DS_Store
+.vscode
