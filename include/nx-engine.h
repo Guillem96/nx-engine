@@ -1,9 +1,12 @@
 #pragma once
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
-// Include goes here
+
+#include "screen-manager/IMainScreen.h"
+#include "screen-manager/IScreen.h"
 
 #ifdef __cplusplus
 }
