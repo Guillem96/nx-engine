@@ -58,6 +58,13 @@ bool GfxScreen::init()
 
 bool GfxScreen::initSystems()
 {
+    Result rc = romfsInit();
+    if (rc)
+    {
+        // TODO: Throw exception
+        return false;
+    }
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         // TODO: Throw exception
@@ -75,6 +82,8 @@ void GfxScreen::exit()
 
     m_currentScreen->onExit();
     m_screenList->destroy();
+
+    romfsExit();
 
     delete m_screenList;
     free(m_window);
