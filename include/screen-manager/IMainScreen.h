@@ -1,8 +1,7 @@
 #pragma once
 
-#include <memory>
-
 #include "ScreenList.h"
+#include "IScreen.h"
 
 class IMainScreen
 {
@@ -15,10 +14,12 @@ class IMainScreen
   protected:
     IMainScreen()
     {
-        m_screenList = std::make_unique<ScreenList>(this);
+        m_screenList = new ScreenList(this);
     }
-
     virtual ~IMainScreen();
+
+    ScreenList *m_screenList = nullptr;
+    IScreen *m_currentScreen = nullptr;
 
     // Called on initialization
     virtual void onInit() = 0;
@@ -27,8 +28,6 @@ class IMainScreen
     // Called when exiting
     virtual void onExit() = 0;
 
-  private:
-    void draw();
-    void update();
-    std::unique_ptr<ScreenList> m_screenList;
+    virtual void draw() final;
+    virtual void update() final;
 };

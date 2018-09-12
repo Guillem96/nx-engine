@@ -5,8 +5,8 @@ extern "C"
 {
 #endif
 
-#include "screen-manager/IMainScreen.h"
 #include "screen-manager/IScreen.h"
+#include "screen-manager/GfxScreen.h"
 
 #ifdef __cplusplus
 }

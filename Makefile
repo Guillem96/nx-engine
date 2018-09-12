@@ -15,9 +15,9 @@ include $(DEVKITPRO)/devkitA64/base_rules
 # INCLUDES is a list of directories containing header files
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
-SOURCES		:=	src
+SOURCES		:=	src/screen-manager
 DATA		:=	data
-INCLUDES	:=	include
+INCLUDES	:=  include
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -79,7 +79,8 @@ export HFILES	:=	$(addsuffix .h,$(subst .,_,$(BINFILES)))
 export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 			-I. \
-			-iquote $(CURDIR)/include/switch/
+			-iquote $(CURDIR)/include/switch/ \
+			-I/opt/devkitpro/portlibs/switch/include/
 
 .PHONY: clean all
 
