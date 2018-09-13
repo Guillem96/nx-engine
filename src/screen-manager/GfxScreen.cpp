@@ -1,5 +1,7 @@
 #include "screen-manager/GfxScreen.h"
 
+#include "exceptions/NxEngineException.h"
+
 GfxScreen::GfxScreen()
 {
 }
@@ -40,7 +42,9 @@ bool GfxScreen::init()
 
     if (SDL_CreateWindowAndRenderer(m_screenWidth, m_screenHeight, 0, &m_window, NULL))
     {
-        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create window and renderer: %s", SDL_GetError());
+        std::string errorMsg = "Couldn't create window: " + std::string(SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't create window: %s", SDL_GetError());
+        throw NxEngineException(errorMsg);
         return false;
     }
 
@@ -61,14 +65,15 @@ bool GfxScreen::initSystems()
     Result rc = romfsInit();
     if (rc)
     {
-        // TODO: Throw exception
+        throw NxEngineException("Error initializing RomFs");
         return false;
     }
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        // TODO: Throw exception
+        std::string errorMsg = "Couldn't initialize SDL Video: " + std::string(SDL_GetError());
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL: %s", SDL_GetError());
+        throw NxEngineException(errorMsg);
         return false;
     }
 

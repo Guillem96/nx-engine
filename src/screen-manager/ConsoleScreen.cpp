@@ -1,5 +1,7 @@
 #include "screen-manager/ConsoleScreen.h"
 
+#include "exceptions/NxEngineException.h"
+
 ConsoleScreen::ConsoleScreen()
 {
 }
@@ -25,6 +27,7 @@ bool ConsoleScreen::init()
 {
     if (!initSystems())
     {
+        throw NxEngineException("Error initializing Nintendo Switch console systems");
         return false;
     }
 
@@ -45,7 +48,8 @@ bool ConsoleScreen::initSystems()
     Result rc = romfsInit();
     if (rc)
     {
-        //GfxScreen TODO: Throw exception
+
+        throw NxEngineException("Error initializing RomFs");
         return false;
     }
 
