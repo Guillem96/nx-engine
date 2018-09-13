@@ -7,6 +7,7 @@ extern "C"
 
 #include "screen-manager/IScreen.h"
 #include "screen-manager/GfxScreen.h"
+#include "screen-manager/ConsoleScreen.h"
 
 #ifdef __cplusplus
 }
