@@ -1,9 +1,12 @@
 #pragma once
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
-// Include goes here
+
+#include "vectors/Vector2.h"
+#include "event-manager/EventManager.h"
 
 #ifdef __cplusplus
 }

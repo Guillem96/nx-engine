@@ -15,7 +15,7 @@ include $(DEVKITPRO)/devkitA64/base_rules
 # INCLUDES is a list of directories containing header files
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
-SOURCES		:=	src
+SOURCES		:=	src/event-manager
 DATA		:=	data
 INCLUDES	:=	include
 
@@ -32,7 +32,7 @@ CFLAGS	:=	-g -Wall -Werror \
 
 CFLAGS	+=	$(INCLUDE)
 
-CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
+CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++14
 
 ASFLAGS	:=	-g $(ARCH)
 
@@ -40,7 +40,7 @@ ASFLAGS	:=	-g $(ARCH)
 # list of directories containing libraries, this must be the top level containing
 # include and lib
 #---------------------------------------------------------------------------------
-LIBDIRS	:=
+LIBDIRS	:= $(DEVKITPRO)/libnx/include/ $(DEVKITPRO)/portlibs/switch/include/
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -79,7 +79,8 @@ export HFILES	:=	$(addsuffix .h,$(subst .,_,$(BINFILES)))
 export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 			-I. \
-			-iquote $(CURDIR)/include/switch/
+			-iquote $(CURDIR)/include/switch/ \
+
 
 .PHONY: clean all
 
