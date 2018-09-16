@@ -28,6 +28,6 @@ class IMainScreen
     // Called when exiting
     virtual void onExit() = 0;
 
-    virtual void draw() final;
-    virtual void update() final;
+    void draw();
+    void update();
 };
