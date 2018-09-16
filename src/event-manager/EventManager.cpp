@@ -10,6 +10,11 @@ void EventManager::releaseKey(unsigned int keyID)
     m_mapKey[keyID] = false;
 }
 
+void EventManager::setTouchCords(Vector2 cords)
+{
+    m_touchCords = &cords;
+}
+
 bool EventManager::isKeyPressed(unsigned int keyID)
 {
     return !wasKeyDown(keyID) && isKeyDown(keyID);
@@ -36,4 +41,17 @@ bool EventManager::wasKeyDown(unsigned int keyID)
         return (*it).second;
     else
         return false;
+}
+
+void EventManager::update()
+{
+    for (auto &it : m_mapKey)
+        m_previousMapKey[it.first] = it.second;
+
+    m_touchCords = nullptr;
+}
+
+Vector2 *EventManager::getTouchCords()
+{
+    return m_touchCords;
 }
