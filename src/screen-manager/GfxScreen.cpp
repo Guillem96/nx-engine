@@ -52,21 +52,8 @@ bool GfxScreen::init()
         return false;
     }
 
-    m_window = SDL_CreateWindow(NULL, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_screenWidth, m_screenHeight, SDL_WINDOW_FULLSCREEN);
-    if (!m_window)
-    {
-        SDL_Quit();
-        return false;
-    }
-
-    m_renderer = SDL_CreateRenderer(m_window, 0, SDL_RENDERER_SOFTWARE);
-    if (!m_renderer)
-    {
-        SDL_Quit();
-        return false;
-    }
-
-    SDL_SetRenderDrawBlendMode(m_renderer, SDL_BLENDMODE_BLEND);
+    // Init the screen components
+    m_eventManager = new GfxEventManager();
 
     m_running = true;
 
@@ -96,6 +83,22 @@ bool GfxScreen::initSystems()
         // throw NxEngineException(errorMsg);
         return false;
     }
+
+    m_window = SDL_CreateWindow(NULL, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_screenWidth, m_screenHeight, SDL_WINDOW_FULLSCREEN);
+    if (!m_window)
+    {
+        SDL_Quit();
+        return false;
+    }
+
+    m_renderer = SDL_CreateRenderer(m_window, 0, SDL_RENDERER_SOFTWARE);
+    if (!m_renderer)
+    {
+        SDL_Quit();
+        return false;
+    }
+
+    SDL_SetRenderDrawBlendMode(m_renderer, SDL_BLENDMODE_BLEND);
 
     return true;
 }

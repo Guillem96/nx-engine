@@ -4,6 +4,8 @@
 
 #include <switch.h>
 
+#include "event-manager/ConsoleEventManager.h"
+
 class ConsoleScreen : public IMainScreen
 {
   private:

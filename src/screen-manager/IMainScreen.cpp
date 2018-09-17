@@ -47,3 +47,8 @@ void IMainScreen::update()
         exit();
     }
 }
+
+EventManager *IMainScreen::eventManager()
+{
+    return m_eventManager;
+}

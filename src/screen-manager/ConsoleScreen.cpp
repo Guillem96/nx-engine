@@ -12,13 +12,14 @@ void ConsoleScreen::run()
     {
         while (m_running)
         {
-            hidScanInput();
+            m_eventManager->update();
 
             update();
             draw();
 
             gfxFlushBuffers();
             gfxSwapBuffers();
+            consoleClear();
         }
     }
 }
@@ -30,6 +31,10 @@ bool ConsoleScreen::init()
         // throw NxEngineException("Error initializing Nintendo Switch console systems");
         return false;
     }
+
+    // Init screen componets
+    m_eventManager = new ConsoleEventManager();
+    m_eventManager->init();
 
     m_running = true;
 
@@ -64,6 +69,9 @@ void ConsoleScreen::exit()
 
     onExit();
 
+    m_eventManager->destroy();
+    delete m_eventManager;
+    
     m_currentScreen->onExit();
     m_screenList->destroy();
 
