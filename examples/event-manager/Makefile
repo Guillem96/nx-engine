@@ -31,19 +31,19 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - <libnx folder>/default_icon.jpg
 #---------------------------------------------------------------------------------
 TARGET		:=	output/$(notdir $(CURDIR))
-BUILD		:=	build
+BUILD			:=	build
 SOURCES		:=	src
-DATA		:=	data
+DATA			:=	data
 INCLUDES	:=	include
 EXEFS_SRC	:=	exefs_src
-#ROMFS	:=	romfs
+ROMFS			:=	romfs
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 ARCH	:=	-march=armv8-a -mtune=cortex-a57 -mtp=soft -fPIE
 
-CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
+CFLAGS	:=	-g -Wall -O2 -ffunction-sections `/opt/devkitpro/portlibs/switch/bin/sdl2-config --cflags` `/opt/devkitpro/portlibs/switch/bin/freetype-config --cflags` \
 			$(ARCH) $(DEFINES)
 
 CFLAGS	+=	$(INCLUDE) -D__SWITCH__
@@ -53,7 +53,8 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++14
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lnx-engine -lSDL2 -lnx
+LIBS	:= -lnx-engine -lcurl -lSDL2_mixer -lmodplug -lmpg123 -lFLAC -lvorbisidec -logg -lSDL2_ttf -lSDL2_gfx -lSDL2_image \
+-lpng -ljpeg `/opt/devkitpro/portlibs/switch/bin/sdl2-config --libs` `/opt/devkitpro/portlibs/switch/bin/freetype-config --libs` -lnx -lconfig
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
