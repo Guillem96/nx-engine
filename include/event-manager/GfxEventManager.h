@@ -12,7 +12,7 @@ class GfxEventManager : public EventManager
     GfxEventManager() {}
     ~GfxEventManager() {}
 
-    void init() override;
-    void update() override;
-    void destroy() override;
+    virtual void init() override;
+    virtual void update() override;
+    virtual void destroy() override;
 };

@@ -35,6 +35,13 @@ void GfxEventManager::update()
         case SDL_JOYBUTTONUP:
             releaseKey(event.jbutton.button);
             break;
+        case SDL_FINGERDOWN:
+            m_touchCords = new Vector2(event.tfinger.x, event.tfinger.y);
+            break;
+        case SDL_FINGERUP:
+            delete m_touchCords;
+            m_touchCords = nullptr;
+            break;
         }
     }
 }

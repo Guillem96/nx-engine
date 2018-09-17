@@ -20,7 +20,6 @@ class EventManager
 
     void pressKey(unsigned int keyID);
     void releaseKey(unsigned int keyID);
-    void setTouchCords(Vector2 cords);
 
     bool isKeyPressed(unsigned int keyID);
     bool isKeyUp(unsigned int keyID);
