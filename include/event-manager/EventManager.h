@@ -8,11 +8,11 @@ class EventManager
 {
   private:
     bool wasKeyDown(unsigned int keyID);
-    Vector2 *m_touchCords = nullptr;
 
   protected:
     std::unordered_map<unsigned int, bool> m_mapKey;
     std::unordered_map<unsigned int, bool> m_previousMapKey;
+    Vector2 *m_touchCords = nullptr;
 
   public:
     EventManager() {}
@@ -29,6 +29,6 @@ class EventManager
     // Returns null in case screen has not been touched during the current frame
     Vector2 *getTouchCords();
     virtual void init() = 0;
-    virtual void update();
+    virtual void update() = 0;
     virtual void destroy() = 0;
 };

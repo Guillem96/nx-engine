@@ -2,16 +2,17 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_events.h>
 
-#include "EventManager.h"
+#include "event-manager/EventManager.h"
 
 class GfxEventManager : public EventManager
 {
   public:
-    GfxEventManager();
-    ~GfxEventManager();
+    GfxEventManager() {}
+    ~GfxEventManager() {}
 
-    virtual void init() override;
-    virtual void update() override;
-    virtual void destroy() override;
+    void init() override;
+    void update() override;
+    void destroy() override;
 };
