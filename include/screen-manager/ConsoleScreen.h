@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IMainScreen.h"
+#include "screen-manager/IMainScreen.h"
 
 #include <switch.h>
 

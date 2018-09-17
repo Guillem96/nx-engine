@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IMainScreen.h"
+#include "screen-manager/IMainScreen.h"
 
 #define SCREEN_INDEX_NO_SCREEN -1
 

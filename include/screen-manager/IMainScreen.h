@@ -1,7 +1,7 @@
 #pragma once
 
-#include "ScreenList.h"
-#include "IScreen.h"
+#include "screen-manager/ScreenList.h"
+#include "screen-manager/IScreen.h"
 
 class IMainScreen
 {
@@ -16,7 +16,7 @@ class IMainScreen
     {
         m_screenList = new ScreenList(this);
     }
-    virtual ~IMainScreen();
+    virtual ~IMainScreen() {}
 
     ScreenList *m_screenList = nullptr;
     IScreen *m_currentScreen = nullptr;

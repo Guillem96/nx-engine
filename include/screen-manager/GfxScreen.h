@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IMainScreen.h"
+#include "screen-manager/IMainScreen.h"
 
 #include <SDL2/SDL.h>
 #include <switch.h>
@@ -28,7 +28,7 @@ class GfxScreen : public IMainScreen
     GfxScreen(int windowHeight, int windowWidth);
     GfxScreen(const Color& color, int windowHeight, int windowWidth);
 
-    virtual ~GfxScreen();
+    virtual ~GfxScreen() {}
 
     int getScreenWidth() const;
     int getScreenHeight() const;
