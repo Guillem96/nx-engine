@@ -13,6 +13,8 @@ class IMainScreen
     // Exits the app
     virtual void exit() = 0;
 
+    EventManager *eventManager();
+
   protected:
     IMainScreen()
     {
@@ -32,8 +34,6 @@ class IMainScreen
     virtual void addScreens() = 0;
     // Called when exiting
     virtual void onExit() = 0;
-
-    EventManager *eventManager();
 
     void draw();
     void update();

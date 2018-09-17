@@ -16,10 +16,9 @@ void ConsoleScreen::run()
 
             update();
             draw();
-
+            
             gfxFlushBuffers();
             gfxSwapBuffers();
-            consoleClear();
         }
     }
 }
@@ -58,9 +57,12 @@ bool ConsoleScreen::initSystems()
         return false;
     }
 
+    gfxInitDefault();
     consoleInit(NULL);
 
     return true;
+
+    exit(0);
 }
 
 void ConsoleScreen::exit()

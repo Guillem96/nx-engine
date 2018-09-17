@@ -16,7 +16,7 @@ class ConsoleScreen : public IMainScreen
 
   public:
     ConsoleScreen();
-    virtual ~ConsoleScreen();
+    virtual ~ConsoleScreen() {}
 
   protected:
     virtual void onInit() = 0;
