@@ -27,7 +27,7 @@ bool ConsoleScreen::init()
 {
     if (!initSystems())
     {
-        throw NxEngineException("Error initializing Nintendo Switch console systems");
+        // throw NxEngineException("Error initializing Nintendo Switch console systems");
         return false;
     }
 
@@ -49,7 +49,7 @@ bool ConsoleScreen::initSystems()
     if (rc)
     {
 
-        throw NxEngineException("Error initializing RomFs");
+        // throw NxEngineException("Error initializing RomFs");
         return false;
     }
 
