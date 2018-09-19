@@ -2,7 +2,7 @@
 
 void IMainScreen::draw()
 {
-    if (m_currentScreen && m_currentScreen->getState() == ScreenState::RUNNING)
+    if (m_running && m_currentScreen && m_currentScreen->getState() == ScreenState::RUNNING)
         m_currentScreen->draw();
 }
 
@@ -36,7 +36,7 @@ void IMainScreen::update()
             }
             break;
         case ScreenState::EXIT_APPLICATION:
-            exit();
+            exitApp();
             break;
         default:
             break;
@@ -44,7 +44,7 @@ void IMainScreen::update()
     }
     else
     {
-        exit();
+        exitApp();
     }
 }
 

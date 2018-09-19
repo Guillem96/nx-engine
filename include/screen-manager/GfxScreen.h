@@ -19,8 +19,6 @@ class GfxScreen : public IMainScreen
     int m_screenHeight = 720;
     int m_screenWidth = 1280;
     
-    bool m_running = false;
-
     bool init();
     bool initSystems();
 
@@ -41,5 +39,5 @@ class GfxScreen : public IMainScreen
 
   public:
     virtual void run() override;
-    virtual void exit() override;
+    virtual void exitApp() override;
 };

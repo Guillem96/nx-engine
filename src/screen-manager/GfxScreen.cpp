@@ -33,6 +33,8 @@ void GfxScreen::run()
     {
         while (m_running)
         {
+            m_eventManager->update();
+            
             update();
             draw();
 
@@ -72,7 +74,6 @@ bool GfxScreen::initSystems()
     Result rc = romfsInit();
     if (rc)
     {
-        // throw NxEngineException("Error initializing RomFs");
         return false;
     }
 
@@ -80,7 +81,6 @@ bool GfxScreen::initSystems()
     {
         std::string errorMsg = "Couldn't initialize SDL Video: " + std::string(SDL_GetError());
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL: %s", SDL_GetError());
-        // throw NxEngineException(errorMsg);
         return false;
     }
 
@@ -102,17 +102,24 @@ bool GfxScreen::initSystems()
 
     return true;
 }
-void GfxScreen::exit()
+void GfxScreen::exitApp()
 {
     m_running = false;
 
     onExit();
 
     m_currentScreen->onExit();
+
     m_screenList->destroy();
+    delete m_screenList;
+
+    m_eventManager->destroy();
+    delete m_eventManager;
 
     romfsExit();
+    
+    SDL_DestroyRenderer(m_renderer);
+    SDL_DestroyWindow(m_window);
 
-    delete m_screenList;
-    free(m_window);
+    SDL_Quit();
 }

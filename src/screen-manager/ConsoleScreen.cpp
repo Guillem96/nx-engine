@@ -2,6 +2,8 @@
 
 #include "exceptions/NxEngineException.h"
 
+#include <stdlib.h>
+
 ConsoleScreen::ConsoleScreen()
 {
 }
@@ -27,7 +29,6 @@ bool ConsoleScreen::init()
 {
     if (!initSystems())
     {
-        // throw NxEngineException("Error initializing Nintendo Switch console systems");
         return false;
     }
 
@@ -53,7 +54,6 @@ bool ConsoleScreen::initSystems()
     if (rc)
     {
 
-        // throw NxEngineException("Error initializing RomFs");
         return false;
     }
 
@@ -65,21 +65,22 @@ bool ConsoleScreen::initSystems()
     exit(0);
 }
 
-void ConsoleScreen::exit()
+void ConsoleScreen::exitApp()
 {
     m_running = false;
 
     onExit();
 
+    m_currentScreen->onExit();
+   
+    m_screenList->destroy();
+    delete m_screenList;
+
     m_eventManager->destroy();
     delete m_eventManager;
     
-    m_currentScreen->onExit();
-    m_screenList->destroy();
-
     gfxExit();
-
     romfsExit();
 
-    delete m_screenList;
+    exit(0);
 }

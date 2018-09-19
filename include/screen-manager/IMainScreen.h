@@ -11,7 +11,7 @@ class IMainScreen
     // Runs and initializes the game
     virtual void run() = 0;
     // Exits the app
-    virtual void exit() = 0;
+    virtual void exitApp() = 0;
 
     EventManager *eventManager();
 
@@ -25,6 +25,8 @@ class IMainScreen
     ScreenList *m_screenList = nullptr;
     IScreen *m_currentScreen = nullptr;
 
+    bool m_running = false;
+    
     // Screen components
     EventManager *m_eventManager = nullptr;
 

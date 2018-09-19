@@ -9,8 +9,6 @@
 class ConsoleScreen : public IMainScreen
 {
   private:
-    bool m_running = false;
-
     bool init();
     bool initSystems();
 
@@ -25,5 +23,5 @@ class ConsoleScreen : public IMainScreen
 
   public:
     virtual void run() override;
-    virtual void exit() override;
+    virtual void exitApp() override;
 };

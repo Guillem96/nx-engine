@@ -48,8 +48,11 @@ void ScreenList::addScreen(IScreen *newScreen)
 void ScreenList::destroy()
 {
     for (size_t i = 0; i < m_screens.size(); i++)
+    {
         m_screens[i]->destroy();
-
+        delete m_screens[i];
+    }
+    
     m_screens.clear();
     m_currentScreenIndex = SCREEN_INDEX_NO_SCREEN;
 }
