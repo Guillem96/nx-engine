@@ -7,9 +7,10 @@ class DisplayMessageScreen : public IScreen
 {
   private:
     std::string m_message;
+    int m_maxScreens;
 
   public:
-    DisplayMessageScreen(std::string message);
+    DisplayMessageScreen(std::string message, int maxScreens);
     ~DisplayMessageScreen();
 
     virtual int getNextScreenIndex() const override;
