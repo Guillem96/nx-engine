@@ -11,6 +11,8 @@ private:
     std::map<std::string, int> m_menuEntries;
     
     void printMenu();
+    int getEntryIndex() const;
+
   public:
     MenuScreen();
     ~MenuScreen();

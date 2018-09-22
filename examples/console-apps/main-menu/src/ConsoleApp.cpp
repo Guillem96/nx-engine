@@ -17,6 +17,9 @@ void ConsoleApp::onInit()
 void ConsoleApp::addScreens()
 {
     m_screenList->addScreen(new MenuScreen());
+    m_screenList->addScreen(new LicenseScreen());
+    m_screenList->addScreen(new DeveloperScreen());
+
     m_screenList->setScreen(MAIN_MENU_INDEX);
 }
 

@@ -13,7 +13,8 @@ MenuScreen::~MenuScreen()
 
 int MenuScreen::getNextScreenIndex() const
 {
-    return SCREEN_INDEX_NO_SCREEN;
+    int nextIndex = getEntryIndex();
+    return nextIndex;
 }
 
 int MenuScreen::getPreviousScreenIndex() const
@@ -27,11 +28,11 @@ void MenuScreen::build()
 
 void MenuScreen::destroy()
 {
+    m_menuEntries.clear();
 }
 
 void MenuScreen::onEntry()
 {
-    printMenu();
 }
 
 void MenuScreen::onExit()
@@ -55,41 +56,49 @@ void MenuScreen::update()
     {
         if(m_selectedOption != (int)m_menuEntries.size() - 1)
             m_selectedOption++;
-            
-        printMenu();
     }
 
     if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
     {
         if(m_selectedOption != 0)
             m_selectedOption--; 
-
-        printMenu();
     }
 }
 
 void MenuScreen::printMenu()
 {
-    consoleClear();
-    
-    printf("\x1b[2;37HMAIN MENU\n");
+  
+    printf("\x1b[2;37HMAIN MENU");
 
     int idx = 0;
     int startRow = 15; 
     for (auto& it: m_menuEntries)
     {
         if (idx == m_selectedOption)
-            printf("\x1b[%d;10H-> %s\n", (startRow + idx), it.first.c_str());
+            printf("\x1b[%d;10H-> %s", (startRow + idx), it.first.c_str());
         else
-            printf("\x1b[%d;10H   %s\n", (startRow + idx), it.first.c_str());
+            printf("\x1b[%d;10H   %s", (startRow + idx), it.first.c_str());
 
         idx++;
     }
 
-    printf("\x1b[45;15HPress UP DOWN to navigate between entries, or B to exit.\n");
-
+    printf("\x1b[45;15HPress UP DOWN to navigate between entries, or B to exit.");
 }
 
 void MenuScreen::draw()
 {
+    printMenu();
+}
+
+int MenuScreen::getEntryIndex() const 
+{
+    int idx = 0;
+    for (auto& it: m_menuEntries)
+    {
+        if(idx == m_selectedOption)
+            return it.second;
+        
+        idx++;
+    }
+    return SCREEN_INDEX_NO_SCREEN;
 }

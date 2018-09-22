@@ -12,7 +12,7 @@ void ConsoleScreen::run()
 {
     if (init())
     {
-        while (m_running)
+        while (appletMainLoop() && m_running)
         {
             m_eventManager->update();
 
@@ -21,6 +21,7 @@ void ConsoleScreen::run()
             
             gfxFlushBuffers();
             gfxSwapBuffers();
+            gfxWaitForVsync();
         }
     }
 }
