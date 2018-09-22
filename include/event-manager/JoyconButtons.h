@@ -21,11 +21,11 @@ public:
     static const unsigned int J_KEY_DRIGHT = 14;
     static const unsigned int J_KEY_DDOWN = 15;
     static const unsigned int J_KEY_LSTICK_LEFT = 16;
-    static const unsigned int KEY_LSTICK_UP = 17;
-    static const unsigned int KEY_LSTICK_RIGHT = 18;
-    static const unsigned int KEY_LSTICK_DOWN = 19;
-    static const unsigned int KEY_RSTICK_LEFT = 20;
-    static const unsigned int KEY_RSTICK_UP = 21;
-    static const unsigned int KEY_RSTICK_RIGHT = 22;
-    static const unsigned int KEY_RSTICK_DOWN = 23;
+    static const unsigned int J_KEY_LSTICK_UP = 17;
+    static const unsigned int J_KEY_LSTICK_RIGHT = 18;
+    static const unsigned int J_KEY_LSTICK_DOWN = 19;
+    static const unsigned int J_KEY_RSTICK_LEFT = 20;
+    static const unsigned int J_KEY_RSTICK_UP = 21;
+    static const unsigned int J_KEY_RSTICK_RIGHT = 22;
+    static const unsigned int J_KEY_RSTICK_DOWN = 23;
 };

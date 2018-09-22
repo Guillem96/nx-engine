@@ -33,6 +33,8 @@ void GfxScreen::run()
     {
         while (m_running)
         {
+            m_eventManager->update();
+            
             update();
             draw();
 
@@ -52,21 +54,8 @@ bool GfxScreen::init()
         return false;
     }
 
-    m_window = SDL_CreateWindow(NULL, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_screenWidth, m_screenHeight, SDL_WINDOW_FULLSCREEN);
-    if (!m_window)
-    {
-        SDL_Quit();
-        return false;
-    }
-
-    m_renderer = SDL_CreateRenderer(m_window, 0, SDL_RENDERER_SOFTWARE);
-    if (!m_renderer)
-    {
-        SDL_Quit();
-        return false;
-    }
-
-    SDL_SetRenderDrawBlendMode(m_renderer, SDL_BLENDMODE_BLEND);
+    // Init the screen components
+    m_eventManager = new GfxEventManager();
 
     m_running = true;
 
@@ -85,7 +74,6 @@ bool GfxScreen::initSystems()
     Result rc = romfsInit();
     if (rc)
     {
-        // throw NxEngineException("Error initializing RomFs");
         return false;
     }
 
@@ -93,23 +81,45 @@ bool GfxScreen::initSystems()
     {
         std::string errorMsg = "Couldn't initialize SDL Video: " + std::string(SDL_GetError());
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL: %s", SDL_GetError());
-        // throw NxEngineException(errorMsg);
         return false;
     }
 
+    m_window = SDL_CreateWindow(NULL, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_screenWidth, m_screenHeight, SDL_WINDOW_FULLSCREEN);
+    if (!m_window)
+    {
+        SDL_Quit();
+        return false;
+    }
+
+    m_renderer = SDL_CreateRenderer(m_window, 0, SDL_RENDERER_SOFTWARE);
+    if (!m_renderer)
+    {
+        SDL_Quit();
+        return false;
+    }
+
+    SDL_SetRenderDrawBlendMode(m_renderer, SDL_BLENDMODE_BLEND);
+
     return true;
 }
-void GfxScreen::exit()
+void GfxScreen::exitApp()
 {
     m_running = false;
 
     onExit();
 
     m_currentScreen->onExit();
+
     m_screenList->destroy();
+    delete m_screenList;
+
+    m_eventManager->destroy();
+    delete m_eventManager;
 
     romfsExit();
+    
+    SDL_DestroyRenderer(m_renderer);
+    SDL_DestroyWindow(m_window);
 
-    delete m_screenList;
-    free(m_window);
+    SDL_Quit();
 }
