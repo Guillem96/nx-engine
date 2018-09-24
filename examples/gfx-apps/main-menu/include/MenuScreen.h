@@ -13,6 +13,7 @@ private:
 
     std::vector<Text*> m_textEntries;
     Font* m_font = nullptr;
+    Font* m_titleFont = nullptr;
 
     int getEntryIndex() const;
 

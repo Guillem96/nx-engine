@@ -6,8 +6,8 @@
 #include <string>
 
 #include "MenuScreen.h"
-#include "DeveloperScreen.h"
-#include "LicenseScreen.h"
+// #include "DeveloperScreen.h"
+// #include "LicenseScreen.h"
 
 // Recieves a vector of strings and for each string generates a screen to print it
 class GfxApp : public GfxScreen

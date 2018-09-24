@@ -24,10 +24,22 @@ int MenuScreen::getPreviousScreenIndex() const
 
 void MenuScreen::build()
 {
-    m_font = new Font("romfs:/Raleway-Regular.ttf", 30);
+    // Build title
+    m_titleFont = new Font("romfs:/Pacifico.ttf", 100);
+    int screenCenter = m_screen->getScreenWidth() / 2;
+    
+    Text* title = new Text("MAIN MENU", m_titleFont, Vector2(), Colors::BLACK);
+    Vector2 titleDims = title->getTextDims();
+    title->setPosition(Vector2(screenCenter - titleDims.x/2, 20.0f));
+
+    m_screen->fontManager()->addText(title);
+
+    // Build menu entries and controls
+    int fontSize = 30;
+    m_font = new Font("romfs:/Raleway-Regular.ttf", fontSize);
     for (auto& it: m_menuEntries)
     {
-        Text *t = new Text(it.first, m_font, Vector2(200.0f, 100.0f), Colors::BLACK);
+        Text *t = new Text(it.first, m_font, Vector2(100.0f, 200.0f + (fontSize + 10.0f) * (float)m_textEntries.size()), Colors::BLACK);
         m_textEntries.push_back(t);
         
         m_screen->fontManager()->addText(t);
@@ -38,6 +50,7 @@ void MenuScreen::destroy()
 {
     m_textEntries.clear();
     m_menuEntries.clear();
+    delete m_font;
 }
 
 void MenuScreen::onEntry()
@@ -52,7 +65,7 @@ void MenuScreen::update()
 {
     if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_A))
     {
-        m_currentState = ScreenState::CHANGE_NEXT;
+        // m_currentState = ScreenState::CHANGE_NEXT;
     }
 
     if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_B))
@@ -72,6 +85,10 @@ void MenuScreen::update()
             m_selectedOption--; 
     }
 
+    for (Text* t: m_textEntries)
+    {
+       t->setColor(Colors::BLACK);
+    }
     m_textEntries[m_selectedOption]->setColor(Colors::BLUE);
 }
 
