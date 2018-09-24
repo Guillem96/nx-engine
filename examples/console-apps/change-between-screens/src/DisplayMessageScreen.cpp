@@ -52,17 +52,17 @@ void DisplayMessageScreen::onExit()
 
 void DisplayMessageScreen::update()
 {
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DRIGHT))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DRIGHT))
     {
         m_currentState = ScreenState::CHANGE_NEXT;
     }
 
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DLEFT))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DLEFT))
     {
         m_currentState = ScreenState::CHANGE_PREVIOUS;
     }
 
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_PLUS))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_PLUS))
     {
         m_currentState = ScreenState::EXIT_APPLICATION;
     }

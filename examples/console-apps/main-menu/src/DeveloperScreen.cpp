@@ -38,18 +38,18 @@ void DeveloperScreen::onExit()
 
 void DeveloperScreen::update()
 {
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DLEFT) || m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_LEFT))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DLEFT) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_LEFT))
     {
         if (m_color != 0)
             m_color--;
     }
 
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DRIGHT) || m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_RIGHT))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DRIGHT) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_RIGHT))
     {
         if (m_color != 7) // MAX COLORS ARE 8
             m_color++;
     }
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_B))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_B))
     {
         m_currentState = ScreenState::CHANGE_PREVIOUS;
     }

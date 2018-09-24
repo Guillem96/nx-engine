@@ -1,6 +1,6 @@
-#include "event-manager/GfxEventManager.h"
+#include "input-manager/GfxInputManager.h"
 
-void GfxEventManager::init()
+void GfxInputManager::init()
 {
 
     if (SDL_Init(SDL_INIT_JOYSTICK))
@@ -20,9 +20,9 @@ void GfxEventManager::init()
     }
 }
 
-void GfxEventManager::update()
+void GfxInputManager::update()
 {
-    EventManager::update();
+    InputManager::update();
     SDL_Event event;
 
     while (SDL_PollEvent(&event))
@@ -46,6 +46,6 @@ void GfxEventManager::update()
     }
 }
 
-void GfxEventManager::destroy()
+void GfxInputManager::destroy()
 {
 }

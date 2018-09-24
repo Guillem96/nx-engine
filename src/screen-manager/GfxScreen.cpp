@@ -33,7 +33,7 @@ void GfxScreen::run()
     {
         while (m_running)
         {
-            m_eventManager->update();
+            m_inputManager->update();
             
             update();
             draw();
@@ -55,7 +55,7 @@ bool GfxScreen::init()
     }
 
     // Init the screen components
-    m_eventManager = new GfxEventManager();
+    m_inputManager = new GfxInputManager();
 
     m_running = true;
 
@@ -113,8 +113,8 @@ void GfxScreen::exitApp()
     m_screenList->destroy();
     delete m_screenList;
 
-    m_eventManager->destroy();
-    delete m_eventManager;
+    m_inputManager->destroy();
+    delete m_inputManager;
 
     romfsExit();
     

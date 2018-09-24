@@ -48,7 +48,7 @@ void IMainScreen::update()
     }
 }
 
-EventManager *IMainScreen::eventManager()
+InputManager *IMainScreen::inputManager()
 {
-    return m_eventManager;
+    return m_inputManager;
 }

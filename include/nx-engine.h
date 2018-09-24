@@ -3,9 +3,10 @@
 #include "common/Color.h"
 
 #include "vectors/Vector2.h"
-#include "event-manager/JoyconButtons.h"
-#include "event-manager/EventManager.h"
-#include "event-manager/GfxEventManager.h"
+#include "input-manager/JoyconButtons.h"
+#include "input-manager/InputManager.h"
+#include "input-manager/GfxInputManager.h"
+#include "input-manager/ConsoleInputManager.h"
 
 #include "screen-manager/IScreen.h"
 #include "screen-manager/GfxScreen.h"

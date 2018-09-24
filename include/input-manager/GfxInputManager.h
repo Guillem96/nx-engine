@@ -4,13 +4,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
 
-#include "event-manager/EventManager.h"
+#include "input-manager/InputManager.h"
 
-class GfxEventManager : public EventManager
+class GfxInputManager : public InputManager
 {
   public:
-    GfxEventManager() {}
-    ~GfxEventManager() {}
+    GfxInputManager() {}
+    ~GfxInputManager() {}
 
     virtual void init() override;
     virtual void update() override;

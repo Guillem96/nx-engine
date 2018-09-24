@@ -6,7 +6,7 @@
 #include <switch.h>
 
 #include "common/Color.h"
-#include "event-manager/GfxEventManager.h"
+#include "input-manager/GfxInputManager.h"
 
 class GfxScreen : public IMainScreen
 {

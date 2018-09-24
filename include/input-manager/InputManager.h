@@ -4,7 +4,7 @@
 
 #include "vectors/Vector2.h"
 
-class EventManager
+class InputManager
 {
   private:
     bool wasKeyDown(unsigned int keyID);
@@ -15,8 +15,8 @@ class EventManager
     Vector2 *m_touchCords = nullptr;
 
   public:
-    EventManager() {}
-    virtual ~EventManager() {}
+    InputManager() {}
+    virtual ~InputManager() {}
 
     void pressKey(unsigned int keyID);
     void releaseKey(unsigned int keyID);

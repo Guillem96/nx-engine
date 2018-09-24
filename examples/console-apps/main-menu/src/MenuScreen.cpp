@@ -42,23 +42,23 @@ void MenuScreen::onExit()
 
 void MenuScreen::update()
 {
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_A))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_A))
     {
         m_currentState = ScreenState::CHANGE_NEXT;
     }
 
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_B))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_B))
     {
         m_currentState = ScreenState::EXIT_APPLICATION;
     }
 
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DDOWN) || m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_DOWN))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DDOWN) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_DOWN))
     {
         if(m_selectedOption != (int)m_menuEntries.size() - 1)
             m_selectedOption++;
     }
 
-    if (m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_screen->eventManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
+    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
     {
         if(m_selectedOption != 0)
             m_selectedOption--; 

@@ -14,7 +14,7 @@ void ConsoleScreen::run()
     {
         while (appletMainLoop() && m_running)
         {
-            m_eventManager->update();
+            m_inputManager->update();
 
             update();
             draw();
@@ -34,8 +34,8 @@ bool ConsoleScreen::init()
     }
 
     // Init screen componets
-    m_eventManager = new ConsoleEventManager();
-    m_eventManager->init();
+    m_inputManager = new ConsoleInputManager();
+    m_inputManager->init();
 
     m_running = true;
 
@@ -77,8 +77,8 @@ void ConsoleScreen::exitApp()
     m_screenList->destroy();
     delete m_screenList;
 
-    m_eventManager->destroy();
-    delete m_eventManager;
+    m_inputManager->destroy();
+    delete m_inputManager;
     
     gfxExit();
     romfsExit();

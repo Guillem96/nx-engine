@@ -1,12 +1,12 @@
-#include "event-manager/ConsoleEventManager.h"
+#include "input-manager/ConsoleInputManager.h"
 
-void ConsoleEventManager::init()
+void ConsoleInputManager::init()
 {
 }
 
-void ConsoleEventManager::update()
+void ConsoleInputManager::update()
 {
-    EventManager::update();
+    InputManager::update();
 
     hidScanInput();
 
@@ -27,6 +27,6 @@ void ConsoleEventManager::update()
     }
 }
 
-void ConsoleEventManager::destroy()
+void ConsoleInputManager::destroy()
 {
 }

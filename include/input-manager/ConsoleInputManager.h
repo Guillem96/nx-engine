@@ -4,16 +4,16 @@
 
 #include <map>
 
-#include "EventManager.h"
+#include "InputManager.h"
 
-class ConsoleEventManager : public EventManager
+class ConsoleInputManager : public InputManager
 {
   private:
     const int PAD_BUTTONS = 32;
 
   public:
-    ConsoleEventManager() {}
-    ~ConsoleEventManager() {}
+    ConsoleInputManager() {}
+    ~ConsoleInputManager() {}
 
     virtual void init() override;
     virtual void update() override;

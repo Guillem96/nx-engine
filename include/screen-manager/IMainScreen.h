@@ -3,7 +3,7 @@
 #include "screen-manager/ScreenList.h"
 #include "screen-manager/IScreen.h"
 
-#include "event-manager/EventManager.h"
+#include "input-manager/InputManager.h"
 
 class IMainScreen
 {
@@ -13,7 +13,7 @@ class IMainScreen
     // Exits the app
     virtual void exitApp() = 0;
 
-    EventManager *eventManager();
+    InputManager *inputManager();
 
   protected:
     IMainScreen()
@@ -28,7 +28,7 @@ class IMainScreen
     bool m_running = false;
     
     // Screen components
-    EventManager *m_eventManager = nullptr;
+    InputManager *m_inputManager = nullptr;
 
     // Called on initialization
     virtual void onInit() = 0;
