@@ -52,3 +52,9 @@ InputManager *IMainScreen::inputManager()
 {
     return m_inputManager;
 }
+
+FontManager* IMainScreen::fontManager()
+{
+    return nullptr;
+}
+

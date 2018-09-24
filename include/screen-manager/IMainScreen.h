@@ -5,6 +5,9 @@
 
 #include "input-manager/InputManager.h"
 
+#include "font-manager/FontManager.h"
+
+
 class IMainScreen
 {
   public:
@@ -14,6 +17,7 @@ class IMainScreen
     virtual void exitApp() = 0;
 
     InputManager *inputManager();
+    virtual FontManager* fontManager();
 
   protected:
     IMainScreen()

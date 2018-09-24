@@ -6,11 +6,13 @@
 #include <switch.h>
 
 #include "common/Color.h"
+#include "common/Colors.h"
+
 #include "input-manager/GfxInputManager.h"
 #include "font-manager/FontManager.h"
 
 class GfxScreen : public IMainScreen
-{
+{  
   private:
     SDL_Window *m_window = nullptr;
     SDL_Renderer *m_renderer = nullptr;
@@ -20,7 +22,7 @@ class GfxScreen : public IMainScreen
     int m_screenHeight = 720;
     int m_screenWidth = 1280;
     
-    FontManager* m_fontManager = nullptr;
+    FontManager* m_fontManager;
 
     bool init();
     bool initSystems();
@@ -40,8 +42,9 @@ class GfxScreen : public IMainScreen
     virtual void addScreens() = 0;
     virtual void onExit() = 0;
 
-    FontManager* fontManager();
   public:
     virtual void run() override;
     virtual void exitApp() override;
+
+    virtual FontManager* fontManager() override;
 };

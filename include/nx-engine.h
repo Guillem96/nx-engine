@@ -1,6 +1,7 @@
 #pragma once
 
 #include "common/Color.h"
+#include "common/Colors.h"
 
 #include "vectors/Vector2.h"
 
@@ -15,5 +16,6 @@
 
 #include "font-manager/Font.h"
 #include "font-manager/Text.h"
+#include "font-manager/FontManager.h"
 
 #include "exceptions/NxEngineException.h"
