@@ -14,7 +14,7 @@ Font::~Font()
     free(m_font);
 }
 
-TTF_Font *Font::get()
+TTF_Font *Font::get() const
 {
     return m_font;
 }

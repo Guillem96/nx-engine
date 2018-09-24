@@ -40,7 +40,7 @@ void GfxScreen::run()
 
             SDL_RenderPresent(m_renderer);
 
-            SDL_Color colour = m_bgColor.getColor();
+            SDL_Color colour = m_bgColor.get();
             SDL_SetRenderDrawColor(m_renderer, colour.r, colour.g, colour.b, colour.a);
             SDL_RenderClear(m_renderer);
         }

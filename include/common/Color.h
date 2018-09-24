@@ -17,7 +17,7 @@ class Color
         m_color = {red, green, blue, 255};
     }
 
-    const SDL_Color &getColor() { return m_color; }
+    const SDL_Color &get() const { return m_color; }
 };
 
 class Colors

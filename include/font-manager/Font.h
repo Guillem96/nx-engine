@@ -11,5 +11,5 @@ public:
     Font(const std::string &path, int size);
     ~Font();
 
-    TTF_Font* get();
+    TTF_Font* get() const;
 };
