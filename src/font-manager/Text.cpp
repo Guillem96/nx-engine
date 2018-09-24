@@ -31,6 +31,14 @@ const Color &Text::getColor() const
     return m_color;
 }
 
+const Vector2 Text::getTextDims()
+{
+    int w, h;
+    TTF_SizeText(m_font->get(), m_text.c_str(), &w, &h);
+    return Vector2((float)w, (float)h);
+}
+
+
 void Text::setText(const std::string &text)
 {
     m_text = text;

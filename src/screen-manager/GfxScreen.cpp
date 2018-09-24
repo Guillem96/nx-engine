@@ -56,6 +56,7 @@ bool GfxScreen::init()
 
     // Init the screen components
     m_inputManager = new GfxInputManager();
+    m_inputManager->init();
 
     m_fontManager = new FontManager(m_window, m_renderer);
     if(!m_fontManager->init())
@@ -129,10 +130,4 @@ void GfxScreen::exitApp()
     SDL_DestroyWindow(m_window);
 
     SDL_Quit();
-}
-
-
-FontManager* GfxScreen::fontManager()
-{
-    return m_fontManager;
 }

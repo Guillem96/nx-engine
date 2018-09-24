@@ -9,7 +9,6 @@
 #include "common/Colors.h"
 
 #include "input-manager/GfxInputManager.h"
-#include "font-manager/FontManager.h"
 
 class GfxScreen : public IMainScreen
 {  
@@ -22,8 +21,6 @@ class GfxScreen : public IMainScreen
     int m_screenHeight = 720;
     int m_screenWidth = 1280;
     
-    FontManager* m_fontManager;
-
     bool init();
     bool initSystems();
 
@@ -34,8 +31,8 @@ class GfxScreen : public IMainScreen
 
     virtual ~GfxScreen() {}
 
-    int getScreenWidth() const;
-    int getScreenHeight() const;
+    virtual int getScreenWidth() const override;
+    virtual int getScreenHeight() const override;
 
   protected:
     virtual void onInit() = 0;
@@ -45,6 +42,4 @@ class GfxScreen : public IMainScreen
   public:
     virtual void run() override;
     virtual void exitApp() override;
-
-    virtual FontManager* fontManager() override;
 };

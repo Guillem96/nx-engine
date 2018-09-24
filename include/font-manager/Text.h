@@ -21,6 +21,7 @@ public:
     const Vector2& getPosition() const;
     const Font* getFont() const;
     const Color& getColor() const;
+    const Vector2 getTextDims();
 
     void setText(const std::string& text);
     void setPosition(const Vector2& position);

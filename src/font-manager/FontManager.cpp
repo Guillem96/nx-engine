@@ -10,10 +10,9 @@ FontManager::~FontManager()
 
 bool FontManager::init()
 {
-    if (!TTF_WasInit() && TTF_Init() == -1)
-    {
+    if(TTF_Init() < 0)
         return false;
-    }
+        
     return true;
 }
 

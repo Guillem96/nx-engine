@@ -24,4 +24,7 @@ class ConsoleScreen : public IMainScreen
   public:
     virtual void run() override;
     virtual void exitApp() override;
+
+    virtual int getScreenWidth() const override;
+    virtual int getScreenHeight() const override;
 };

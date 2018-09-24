@@ -85,3 +85,6 @@ void ConsoleScreen::exitApp()
 
     exit(0);
 }
+
+int ConsoleScreen::getScreenWidth() const { return 0; }
+int ConsoleScreen::getScreenHeight() const { return 0; }

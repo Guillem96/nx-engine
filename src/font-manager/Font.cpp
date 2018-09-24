@@ -11,7 +11,7 @@ Font::Font(const std::string &path, int size)
 
 Font::~Font()
 {
-    free(m_font);
+    TTF_CloseFont(m_font);
 }
 
 TTF_Font *Font::get() const

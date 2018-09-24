@@ -41,8 +41,8 @@ void ScreenList::addScreen(IScreen *newScreen)
 {
     newScreen->m_screenIndex = m_screens.size();
     m_screens.push_back(newScreen);
-    newScreen->build();
     newScreen->setParentScreen(m_screen);
+    newScreen->build();
 }
 
 void ScreenList::destroy()

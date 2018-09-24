@@ -16,8 +16,11 @@ class IMainScreen
     // Exits the app
     virtual void exitApp() = 0;
 
+    virtual int getScreenWidth() const = 0;
+    virtual int getScreenHeight() const = 0;
+
     InputManager *inputManager();
-    virtual FontManager* fontManager();
+    FontManager* fontManager();
 
   protected:
     IMainScreen()
@@ -33,6 +36,7 @@ class IMainScreen
     
     // Screen components
     InputManager *m_inputManager = nullptr;
+    FontManager *m_fontManager = nullptr;
 
     // Called on initialization
     virtual void onInit() = 0;
