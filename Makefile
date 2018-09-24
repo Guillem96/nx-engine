@@ -15,7 +15,7 @@ include $(DEVKITPRO)/devkitA64/base_rules
 # INCLUDES is a list of directories containing header files
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
-SOURCES		:=	src/input-manager src/screen-manager
+SOURCES		:=	src/input-manager src/screen-manager src/font-manager
 DATA		:=	data
 INCLUDES	:=  include
 
