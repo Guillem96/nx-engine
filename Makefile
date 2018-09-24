@@ -16,7 +16,7 @@ include $(DEVKITPRO)/devkitA64/base_rules
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
 SOURCES		:=	src/input-manager src/screen-manager src/font-manager
-DATA		:=	data
+DATA			:=	data
 INCLUDES	:=  include
 
 #---------------------------------------------------------------------------------

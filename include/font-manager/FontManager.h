@@ -1,10 +1,11 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-
-#include "screen-manager/GfxScreen.h"
+#include <vector>
 
 #include "font-manager/Text.h"
+
+class GfxScreen;
 
 class FontManager
 {
