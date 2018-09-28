@@ -15,6 +15,7 @@
 
 class GfxScreen : public IMainScreen
 {  
+  friend class GfxComponentFactory;  
   private:
     SDL_Window *m_window = nullptr;
     SDL_Renderer *m_renderer = nullptr;

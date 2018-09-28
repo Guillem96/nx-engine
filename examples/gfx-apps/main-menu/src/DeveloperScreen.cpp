@@ -21,10 +21,15 @@ int DeveloperScreen::getPreviousScreenIndex() const
 
 void DeveloperScreen::build()
 {
+    // Create the InputManager component using a factory
+    m_inputManager = m_screen->factory()->createInputManager();
+    m_inputManager->init();
 }
 
 void DeveloperScreen::destroy()
 {
+    m_inputManager->destroy();
+    delete m_inputManager;
 }
 
 void DeveloperScreen::onEntry()
@@ -38,18 +43,20 @@ void DeveloperScreen::onExit()
 
 void DeveloperScreen::update()
 {
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DLEFT) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_LEFT))
+    m_inputManager->update();
+
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DLEFT) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_LEFT))
     {
         if (m_color != 0)
             m_color--;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DRIGHT) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_RIGHT))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DRIGHT) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_RIGHT))
     {
         if (m_color != 7) // MAX COLORS ARE 8
             m_color++;
     }
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_B))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_B))
     {
         m_currentState = ScreenState::CHANGE_PREVIOUS;
     }

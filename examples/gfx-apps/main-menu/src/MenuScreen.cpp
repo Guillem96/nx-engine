@@ -29,7 +29,7 @@ void MenuScreen::build()
     m_inputManager->init();
     
     // Create the InputManager component using a factory
-    m_fontManager = m_screen->factory()->createFontManager(m_window, m_renderer);
+    m_fontManager = m_screen->factory()->createFontManager((GfxScreen*)m_screen);
     m_fontManager->init();
     
     // Build title
@@ -59,6 +59,12 @@ void MenuScreen::destroy()
     m_textEntries.clear();
     m_menuEntries.clear();
     delete m_font;
+    
+    m_inputManager->destroy();
+    delete m_inputManager;
+
+    m_fontManager->destroy();
+    delete m_fontManager;
 }
 
 void MenuScreen::onEntry()
@@ -71,6 +77,8 @@ void MenuScreen::onExit()
 
 void MenuScreen::update()
 {
+    m_inputManager->update();
+    
     if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_A))
     {
         // m_currentState = ScreenState::CHANGE_NEXT;

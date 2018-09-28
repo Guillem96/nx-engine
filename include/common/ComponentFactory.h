@@ -9,5 +9,5 @@ class ComponentFactory
     virtual ~ComponentFactory() {}
     
     virtual InputManager *createInputManager() = 0;
-    virtual FontManager *createFontManager(SDL_Window *window, SDL_Renderer *renderer) = 0;
+    virtual FontManager *createFontManager(GfxScreen* screen) = 0;
 };

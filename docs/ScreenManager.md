@@ -4,6 +4,7 @@
   - ``ConsoleScreen``: Allows you to work on a console environment.
   - ``GfxScreen``: Allows yo to render graphic elements.
 - Both ScreenManagers have the responsible to store all the differents screens of the application.
+- Both ScreenManagers provide a factory in order to create components as [FontManager](../include/font-manager/FontManager.h) and [InputManager](../include/font-manager/InputManager.h)
 - ScreenManager allows you to navigate between diferents screens (IScreen). 
 - Each IScreen will have the ``update()`` and ``draw()`` methods, boths methods will be called each frame.
   - Use ``update()`` to update any kind of data (database, variables...), catch input events...

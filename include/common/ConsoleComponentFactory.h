@@ -11,7 +11,7 @@ class ConsoleComponentFactory : public ComponentFactory
         return new ConsoleInputManager();
     }
 
-    virtual FontManager *createFontManager(SDL_Window *window, SDL_Renderer *renderer) override 
+    virtual FontManager *createFontManager(GfxScreen* screen) override 
     {
         return NULL;
     }

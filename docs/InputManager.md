@@ -44,24 +44,31 @@ Vector2 *getTouchCords();
 
 ## How to use InputManager
 
-In the update method of an IScreen you are able to get the inputManager using the following instruction: ``m_screen->inputManager()``, where ``m_screen`` is the reference to our ScreenManager.
+In the update method of an IScreen you are able to create the InputManager using the following instruction: ``m_screen->factory()->createInputManager()``, where ``m_screen`` is the reference to our ScreenManager (Console or Gfx ScreenManager).
 
 *Example:*
 
 ```cpp
+// Create it using the ComponentFactory at build method
+void MyScreen::build()
+{
+  m_inputManager = m_screen->factory()->createInputManager();
+  m_inputManager->init();
+}
+
 void MyScreen::update()
 {
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DRIGHT))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DRIGHT))
     {
       // Your code here
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DLEFT))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DLEFT))
     {
       // Your code here
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_PLUS))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_PLUS))
     {
       // Your code here
     }

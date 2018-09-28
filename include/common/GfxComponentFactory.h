@@ -1,5 +1,7 @@
 #pragma once
 
+#include "screen-manager/GfxScreen.h"
+
 #include "common/ComponentFactory.h"
 #include "input-manager/GfxInputManager.h"
 
@@ -11,8 +13,8 @@ class GfxComponentFactory : public ComponentFactory
         return new GfxInputManager();
     }
 
-    virtual FontManager *createFontManager(SDL_Window *window, SDL_Renderer *renderer) override 
+    virtual FontManager *createFontManager(GfxScreen* screen) override 
     {
-        return NULL;
+        return new FontManager(screen->m_window, screen->m_renderer);
     }
 };
