@@ -24,10 +24,16 @@ int MenuScreen::getPreviousScreenIndex() const
 
 void MenuScreen::build()
 {
+    // Create the InputManager component using a factory
+    m_inputManager = m_screen->factory()->createInputManager();
+    m_inputManager->init();
 }
 
 void MenuScreen::destroy()
 {
+    // Do not forget to destroy and delete input manager, memory is important :)
+    m_inputManager->destroy();
+    delete m_inputManager;
     m_menuEntries.clear();
 }
 
@@ -42,23 +48,25 @@ void MenuScreen::onExit()
 
 void MenuScreen::update()
 {
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_A))
+    m_inputManager->update();
+    
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_A))
     {
         m_currentState = ScreenState::CHANGE_NEXT;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_B))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_B))
     {
         m_currentState = ScreenState::EXIT_APPLICATION;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DDOWN) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_DOWN))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DDOWN) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_DOWN))
     {
         if(m_selectedOption != (int)m_menuEntries.size() - 1)
             m_selectedOption++;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
     {
         if(m_selectedOption != 0)
             m_selectedOption--; 

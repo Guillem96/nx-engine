@@ -6,6 +6,9 @@
 
 #include "input-manager/ConsoleInputManager.h"
 
+#include "common/ConsoleComponentFactory.h"
+
+
 class ConsoleScreen : public IMainScreen
 {
   private:

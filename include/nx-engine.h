@@ -2,6 +2,9 @@
 
 #include "common/Color.h"
 #include "common/Colors.h"
+#include "common/ComponentFactory.h"
+#include "common/ConsoleComponentFactory.h"
+#include "common/GfxComponentFactory.h"
 
 #include "vectors/Vector2.h"
 
