@@ -20,6 +20,8 @@ class IMainScreen
     virtual int getScreenWidth() const = 0;
     virtual int getScreenHeight() const = 0;
 
+    ComponentFactory* factory() const;
+    
   protected:
     IMainScreen()
     {
@@ -32,7 +34,7 @@ class IMainScreen
 
     bool m_running = false;
 
-    ComponentFactory* m_factory;
+    ComponentFactory* m_factory = nullptr;
 
     // Called on initialization
     virtual void onInit() = 0;

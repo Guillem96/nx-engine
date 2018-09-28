@@ -47,3 +47,8 @@ void IMainScreen::update()
         exitApp();
     }
 }
+
+ComponentFactory* IMainScreen::factory() const
+{
+    return m_factory;
+}

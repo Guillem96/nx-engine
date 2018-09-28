@@ -8,12 +8,10 @@ FontManager::~FontManager()
 {
 }
 
-bool FontManager::init()
+void FontManager::init()
 {
     if(TTF_Init() < 0)
-        return false;
-        
-    return true;
+        SDL_Quit();
 }
 
 void FontManager::addText(Text *t)

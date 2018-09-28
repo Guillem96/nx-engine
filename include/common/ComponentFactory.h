@@ -1,5 +1,6 @@
 #pragma once
 
+#include "input-manager/InputManager.h"
 #include "font-manager/FontManager.h"
 
 class ComponentFactory
