@@ -11,6 +11,9 @@ private:
     int m_selectedOption = 0;
     std::map<std::string, int> m_menuEntries;
 
+    InputManager* m_inputManager = nullptr;
+    FontManager* m_fontManager = nullptr;
+    
     std::vector<Text*> m_textEntries;
     Font* m_font = nullptr;
     Font* m_titleFont = nullptr;

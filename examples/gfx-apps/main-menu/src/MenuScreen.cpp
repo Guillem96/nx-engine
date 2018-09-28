@@ -24,6 +24,14 @@ int MenuScreen::getPreviousScreenIndex() const
 
 void MenuScreen::build()
 {
+    // Create the InputManager component using a factory
+    m_inputManager = m_screen->factory()->createInputManager();
+    m_inputManager->init();
+    
+    // Create the InputManager component using a factory
+    m_fontManager = m_screen->factory()->createFontManager(m_window, m_renderer);
+    m_fontManager->init();
+    
     // Build title
     m_titleFont = new Font("romfs:/Pacifico.ttf", 100);
     int screenCenter = m_screen->getScreenWidth() / 2;
@@ -32,7 +40,7 @@ void MenuScreen::build()
     Vector2 titleDims = title->getTextDims();
     title->setPosition(Vector2(screenCenter - titleDims.x/2, 20.0f));
 
-    m_screen->fontManager()->addText(title);
+    m_fontManager->addText(title);
 
     // Build menu entries and controls
     int fontSize = 30;
@@ -42,7 +50,7 @@ void MenuScreen::build()
         Text *t = new Text(it.first, m_font, Vector2(100.0f, 200.0f + (fontSize + 10.0f) * (float)m_textEntries.size()), Colors::BLACK);
         m_textEntries.push_back(t);
         
-        m_screen->fontManager()->addText(t);
+        m_fontManager->addText(t);
     }
 }
 
@@ -63,23 +71,23 @@ void MenuScreen::onExit()
 
 void MenuScreen::update()
 {
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_A))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_A))
     {
         // m_currentState = ScreenState::CHANGE_NEXT;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_B))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_B))
     {
         m_currentState = ScreenState::EXIT_APPLICATION;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DDOWN) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_DOWN))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DDOWN) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_DOWN))
     {
         if(m_selectedOption != (int)m_menuEntries.size() - 1)
             m_selectedOption++;
     }
 
-    if (m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_screen->inputManager()->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
+    if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DUP) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_UP))
     {
         if(m_selectedOption != 0)
             m_selectedOption--; 
@@ -94,7 +102,7 @@ void MenuScreen::update()
 
 void MenuScreen::draw()
 {
-    m_screen->fontManager()->draw();
+    m_fontManager->draw();
 }
 
 int MenuScreen::getEntryIndex() const 

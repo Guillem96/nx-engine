@@ -6,6 +6,7 @@ class LicenseScreen : public IScreen
 {
   private:
     int m_color = 0;
+    InputManager* m_inputManager = nullptr;
 
   public:
     LicenseScreen();
