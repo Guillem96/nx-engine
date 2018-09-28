@@ -47,14 +47,3 @@ void IMainScreen::update()
         exitApp();
     }
 }
-
-InputManager *IMainScreen::inputManager()
-{
-    return m_inputManager;
-}
-
-FontManager* IMainScreen::fontManager()
-{
-    return m_fontManager;
-}
-

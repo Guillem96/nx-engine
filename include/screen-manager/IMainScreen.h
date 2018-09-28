@@ -7,6 +7,7 @@
 
 #include "font-manager/FontManager.h"
 
+#include "common/ComponentFactory.h"
 
 class IMainScreen
 {
@@ -19,9 +20,6 @@ class IMainScreen
     virtual int getScreenWidth() const = 0;
     virtual int getScreenHeight() const = 0;
 
-    InputManager *inputManager();
-    FontManager* fontManager();
-
   protected:
     IMainScreen()
     {
@@ -33,10 +31,8 @@ class IMainScreen
     IScreen *m_currentScreen = nullptr;
 
     bool m_running = false;
-    
-    // Screen components
-    InputManager *m_inputManager = nullptr;
-    FontManager *m_fontManager = nullptr;
+
+    ComponentFactory* m_factory;
 
     // Called on initialization
     virtual void onInit() = 0;

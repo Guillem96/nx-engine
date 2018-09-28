@@ -10,6 +10,9 @@
 
 #include "input-manager/GfxInputManager.h"
 
+#include "common/GfxComponentFactory.h"
+
+
 class GfxScreen : public IMainScreen
 {  
   private:

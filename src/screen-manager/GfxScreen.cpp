@@ -32,9 +32,7 @@ void GfxScreen::run()
     if (init())
     {
         while (m_running)
-        {
-            m_inputManager->update();
-            
+        {            
             update();
             draw();
 
@@ -54,13 +52,7 @@ bool GfxScreen::init()
         return false;
     }
 
-    // Init the screen components
-    m_inputManager = new GfxInputManager();
-    m_inputManager->init();
-
-    m_fontManager = new FontManager(m_window, m_renderer);
-    if(!m_fontManager->init())
-        return false;
+    m_factory = new GfxComponentFactory();
 
     m_running = true;
 
@@ -118,11 +110,7 @@ void GfxScreen::exitApp()
     m_screenList->destroy();
     delete m_screenList;
 
-    m_inputManager->destroy();
-    delete m_inputManager;
-
-    m_fontManager->destroy();
-    delete m_fontManager;
+    delete m_factory;
     
     romfsExit();
     
