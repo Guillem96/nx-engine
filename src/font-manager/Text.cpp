@@ -1,10 +1,10 @@
 #include "font-manager/Text.h"
 
 Text::Text(const std::string &text, Font *font, const Vector2 &position, const Color &color)
-    :   m_text(text), 
-        m_font(font), 
-        m_position(position), 
-        m_color(color)
+    : m_text(text),
+      m_font(font),
+      m_position(position),
+      m_color(color)
 {
 }
 
@@ -38,6 +38,25 @@ const Vector2 Text::getTextDims()
     return Vector2((float)w, (float)h);
 }
 
+float Text::getPaddingLeft() const
+{
+    return m_paddingLeft;
+}
+
+float Text::getPaddingRight() const
+{
+    return m_paddingRight;
+}
+
+float Text::getPaddingTop() const
+{
+    return m_paddingTop;
+}
+
+float Text::getPaddingBottom() const
+{
+    return m_paddingBottom;
+}
 
 void Text::setText(const std::string &text)
 {
@@ -52,4 +71,32 @@ void Text::setPosition(const Vector2 &position)
 void Text::setColor(const Color &color)
 {
     m_color = color;
+}
+
+void Text::setPaddings(float left, float top, float right, float bottom)
+{
+    setPaddingLeft(left);
+    setPaddingTop(top);
+    setPaddingRight(right);
+    setPaddingBottom(bottom);
+}
+
+void Text::setPaddingLeft(float p)
+{
+    m_paddingLeft = p;
+}
+
+void Text::setPaddingRight(float p)
+{
+    m_paddingRight = p;
+}
+
+void Text::setPaddingTop(float p)
+{
+    m_paddingTop = p;
+}
+
+void Text::setPaddingBottom(float p)
+{
+    m_paddingBottom = p;
 }

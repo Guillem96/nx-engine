@@ -5,8 +5,6 @@
 
 #include "font-manager/Text.h"
 
-class GfxScreen;
-
 class FontManager
 {
   private:
@@ -14,6 +12,8 @@ class FontManager
     SDL_Renderer *m_renderer = nullptr;
 
     std::vector<Text *> m_textList;
+
+    void generateTextPosition(Text *t);
 
   public:
     FontManager(SDL_Window *window, SDL_Renderer *renderer);
@@ -23,7 +23,7 @@ class FontManager
 
     // Add text in order to be rendered on the draw function
     // Once the texts are added FontManager will be the responsible of free them
-    void addText(Text* t);
+    void addText(Text *t);
 
     void draw();
 

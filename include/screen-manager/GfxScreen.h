@@ -7,15 +7,12 @@
 
 #include "common/Color.h"
 #include "common/Colors.h"
+#include "common/GfxComponentFactory.h"
 
 #include "input-manager/GfxInputManager.h"
 
-#include "common/GfxComponentFactory.h"
-
-
 class GfxScreen : public IMainScreen
-{  
-  friend class GfxComponentFactory;  
+{
   private:
     SDL_Window *m_window = nullptr;
     SDL_Renderer *m_renderer = nullptr;
@@ -24,19 +21,22 @@ class GfxScreen : public IMainScreen
 
     int m_screenHeight = 720;
     int m_screenWidth = 1280;
-    
+
     bool init();
     bool initSystems();
 
   public:
     GfxScreen();
     GfxScreen(int windowHeight, int windowWidth);
-    GfxScreen(const Color& color, int windowHeight, int windowWidth);
+    GfxScreen(const Color &color, int windowHeight, int windowWidth);
 
     virtual ~GfxScreen() {}
 
     virtual int getScreenWidth() const override;
     virtual int getScreenHeight() const override;
+
+    SDL_Window *getSDLWindow() { return m_window; }
+    SDL_Renderer *getSDLRenderer() { return m_renderer; }
 
   protected:
     virtual void onInit() = 0;
