@@ -26,7 +26,7 @@ class Text
     Font *m_font = nullptr;
     Vector2 m_position;
     Color m_color;
-    unsigned int align;
+    unsigned int m_align = TextAlignFlags::FREE;
 
     float m_paddingLeft = 5.0f;
     float m_paddingTop = 5.0f;
@@ -45,7 +45,6 @@ class Text
     const Color &getColor() const;
     const Vector2 getTextDims();
     unsigned int getAlignmentFlags() const;
-
     float getPaddingLeft() const;
     float getPaddingRight() const;
     float getPaddingTop() const;
@@ -54,8 +53,7 @@ class Text
     void setText(const std::string &text);
     void setPosition(const Vector2 &position);
     void setColor(const Color &color);
-    void setAlignmentFlags(unsigned int flags) const;
-
+    void setAlignmentFlags(unsigned int flags);
     void setPaddings(float left, float top, float right, float bottom);
     void setPaddingLeft(float p);
     void setPaddingRight(float p);

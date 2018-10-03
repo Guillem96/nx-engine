@@ -52,7 +52,7 @@ void FontManager::generateTextPosition(Text *t)
     SDL_GetWindowSize(m_window, &screenWidth, &screenHeight);
 
     Vector2 dims = t->getTextDims();
-    Vector2 textPos;
+    Vector2 textPos = t->getPosition();
 
     // Horizontal alignment
     if (t->getAlignmentFlags() & TextAlignFlags::CENTER)

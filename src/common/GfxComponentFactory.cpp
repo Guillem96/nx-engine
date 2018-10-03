@@ -6,7 +6,7 @@ InputManager *GfxComponentFactory::createInputManager()
     return new GfxInputManager();
 }
 
-FontManager *GfxComponentFactorycreateFontManager(GfxScreen *screen)
+FontManager *GfxComponentFactory::createFontManager(GfxScreen *screen)
 {
     return new FontManager(screen->getSDLWindow(), screen->getSDLRenderer());
 }

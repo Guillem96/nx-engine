@@ -8,6 +8,15 @@ Text::Text(const std::string &text, Font *font, const Vector2 &position, const C
 {
 }
 
+Text::Text(const std::string &text, Font *font, const Vector2 &position, const Color &color, unsigned int align)
+    : m_text(text),
+      m_font(font),
+      m_position(position),
+      m_color(color),
+      m_align(align)
+{
+}
+
 Text::~Text()
 {
 }
@@ -36,6 +45,11 @@ const Vector2 Text::getTextDims()
     int w, h;
     TTF_SizeText(m_font->get(), m_text.c_str(), &w, &h);
     return Vector2((float)w, (float)h);
+}
+
+unsigned int Text::getAlignmentFlags() const
+{
+    return m_align;
 }
 
 float Text::getPaddingLeft() const
@@ -71,6 +85,11 @@ void Text::setPosition(const Vector2 &position)
 void Text::setColor(const Color &color)
 {
     m_color = color;
+}
+
+void Text::setAlignmentFlags(unsigned int flags)
+{
+    m_align = flags;
 }
 
 void Text::setPaddings(float left, float top, float right, float bottom)
