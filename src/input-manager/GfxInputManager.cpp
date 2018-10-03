@@ -2,6 +2,8 @@
 
 void GfxInputManager::init()
 {
+    if (SDL_WasInit(SDL_INIT_JOYSTICK) != 0)
+        return;
 
     if (SDL_Init(SDL_INIT_JOYSTICK))
     {

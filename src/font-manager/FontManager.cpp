@@ -25,6 +25,7 @@ void FontManager::draw()
     {
         TTF_Font *font = t->getFont()->get();
         SDL_Color color = t->getColor().get();
+        generateTextPosition(t);
 
         int screenWidth;
         SDL_GetWindowSize(m_window, &screenWidth, NULL);

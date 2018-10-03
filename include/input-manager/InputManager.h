@@ -18,6 +18,7 @@ class InputManager
     InputManager() {}
     virtual ~InputManager() {}
 
+    void clear();
     void pressKey(unsigned int keyID);
     void releaseKey(unsigned int keyID);
 

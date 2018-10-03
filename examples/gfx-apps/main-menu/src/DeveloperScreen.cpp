@@ -24,12 +24,32 @@ void DeveloperScreen::build()
     // Create the InputManager component using a factory
     m_inputManager = m_screen->factory()->createInputManager();
     m_inputManager->init();
+
+    // Create the InputManager component using a factory
+    m_fontManager = m_screen->factory()->createFontManager((GfxScreen *)m_screen);
+    m_fontManager->init();
+
+    m_font = new Font("romfs:/Raleway-Regular.ttf", 20);
+    m_msgFont = new Font("romfs:/Impact_Label.ttf", 80);
+
+    m_message = new Text("Guillem96", m_msgFont, Vector2(), COLORS[0], TextAlignFlags::MIDDLE | TextAlignFlags::CENTER);
+    m_fontManager->addText(m_message);
+
+    // Build controls
+    Text *controls = new Text("Press B to go back, < or > to change text colors", m_font, Vector2(), Colors::RED, TextAlignFlags::BOTTOM | TextAlignFlags::CENTER);
+    m_fontManager->addText(controls);
 }
 
 void DeveloperScreen::destroy()
 {
+    delete m_font;
+    delete m_msgFont;
+
     m_inputManager->destroy();
     delete m_inputManager;
+
+    m_fontManager->destroy();
+    delete m_fontManager;
 }
 
 void DeveloperScreen::onEntry()
@@ -38,7 +58,7 @@ void DeveloperScreen::onEntry()
 
 void DeveloperScreen::onExit()
 {
-    consoleClear();
+    m_inputManager->clear(); // Clear events to avoid strange scenarions (recommended)
 }
 
 void DeveloperScreen::update()
@@ -48,14 +68,21 @@ void DeveloperScreen::update()
     if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DLEFT) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_LEFT))
     {
         if (m_color != 0)
+        {
             m_color--;
+            m_message->setColor(COLORS[m_color]);
+        }
     }
 
     if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_DRIGHT) || m_inputManager->isKeyPressed(JoyconButtons::J_KEY_LSTICK_RIGHT))
     {
-        if (m_color != 7) // MAX COLORS ARE 8
+        if (m_color != NUM_COLORS - 1)
+        {
             m_color++;
+            m_message->setColor(COLORS[m_color]);
+        }
     }
+
     if (m_inputManager->isKeyPressed(JoyconButtons::J_KEY_B))
     {
         m_currentState = ScreenState::CHANGE_PREVIOUS;
@@ -64,11 +91,5 @@ void DeveloperScreen::update()
 
 void DeveloperScreen::draw()
 {
-    printf(CONSOLE_ESC(%1$d;1m) "\x1b[15;17H   _____       _ _ _               ___    __  " CONSOLE_ESC(0m), m_color + 30);
-    printf(CONSOLE_ESC(%1$d;1m) "\x1b[16;17H  / ____|     (_) | |             / _ \\  / /  " CONSOLE_ESC(0m), m_color + 30);
-    printf(CONSOLE_ESC(%1$d;1m) "\x1b[17;17H | |  __ _   _ _| | | ___ _ __ __| (_) |/ /_  " CONSOLE_ESC(0m), m_color + 30);
-    printf(CONSOLE_ESC(%1$d;1m) "\x1b[18;17H | | |_ | | | | | | |/ _ \\ '_ ` _ \\__, | '_ \\ " CONSOLE_ESC(0m), m_color + 30);
-    printf(CONSOLE_ESC(%1$d;1m) "\x1b[19;17H | |__| | |_| | | | |  __/ | | | | |/ /| (_) |" CONSOLE_ESC(0m), m_color + 30);
-    printf(CONSOLE_ESC(%1$d;1m) "\x1b[20;17H  \\_____|\\__,_|_|_|_|\\___|_| |_| |_/_/  \\___/ " CONSOLE_ESC(0m), m_color + 30);
-    printf("\x1b[45;13HPress LEFT RIGHT to change text color, or B to go back.");
+    m_fontManager->draw();
 }
