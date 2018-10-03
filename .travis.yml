@@ -6,11 +6,10 @@ compiler:
   - gcc
   - clang
 
-install: ci/install_dependencies.sh
+install: sudo ci/install_dependencies.sh
 
 script: make clean && make all
 
 notifications:
   email:
     on_success: never
-        
