@@ -73,4 +73,10 @@ void MyScreen::update()
       // Your code here
     }
 }
+
+void MyScreen::destroy()
+{
+  m_inputManager->destroy();
+  delete m_inputManager;
+}
 ```

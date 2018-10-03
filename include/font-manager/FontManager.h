@@ -25,6 +25,8 @@ class FontManager
     // Once the texts are added FontManager will be the responsible of free them
     void addText(Text *t);
 
+    // Flushes the text to screen
+    // Should be called each frame
     void draw();
 
     // Deinitialize ttf_font and free all TextList
