@@ -48,7 +48,7 @@ void IMainScreen::update()
     }
 }
 
-InputManager *IMainScreen::inputManager()
+ComponentFactory* IMainScreen::factory() const
 {
-    return m_inputManager;
+    return m_factory;
 }

@@ -6,6 +6,9 @@
 
 #include "input-manager/ConsoleInputManager.h"
 
+#include "common/ConsoleComponentFactory.h"
+
+
 class ConsoleScreen : public IMainScreen
 {
   private:
@@ -24,4 +27,7 @@ class ConsoleScreen : public IMainScreen
   public:
     virtual void run() override;
     virtual void exitApp() override;
+
+    virtual int getScreenWidth() const override;
+    virtual int getScreenHeight() const override;
 };

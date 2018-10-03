@@ -5,18 +5,16 @@
 #include <vector>
 #include <string>
 
-#include "DisplayMessageScreen.h"
+#include "MenuScreen.h"
+#include "DeveloperScreen.h"
+#include "LicenseScreen.h"
 
 // Recieves a vector of strings and for each string generates a screen to print it
-class ConsoleApp : public ConsoleScreen
+class GfxApp : public GfxScreen
 {
-  private:
-    std::vector<std::string> m_messages;
-    std::vector<IScreen*> m_displayScreens;
-
   public:
-    ConsoleApp(std::vector<std::string> messages);
-    ~ConsoleApp();
+    GfxApp();
+    ~GfxApp();
 
     virtual void onInit() override;
     virtual void addScreens() override;

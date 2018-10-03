@@ -2,15 +2,27 @@
 
 #include <nx-engine.h>
 
-class LicenseScreen : public IScreen
+#include <map>
+#include <vector>
+
+class MenuScreen : public IScreen
 {
-  private:
-    int m_color = 0;
+private:
+    int m_selectedOption = 0;
+    std::map<std::string, int> m_menuEntries;
+
     InputManager* m_inputManager = nullptr;
+    FontManager* m_fontManager = nullptr;
+    
+    std::vector<Text*> m_textEntries;
+    Font* m_font = nullptr;
+    Font* m_titleFont = nullptr;
+
+    int getEntryIndex() const;
 
   public:
-    LicenseScreen();
-    ~LicenseScreen();
+    MenuScreen();
+    ~MenuScreen();
 
     virtual int getNextScreenIndex() const override;
     virtual int getPreviousScreenIndex() const override;

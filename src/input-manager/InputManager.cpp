@@ -48,3 +48,9 @@ Vector2 *InputManager::getTouchCords()
 {
     return m_touchCords;
 }
+
+void InputManager::clear()
+{
+    m_mapKey.clear();
+    m_previousMapKey.clear();
+}

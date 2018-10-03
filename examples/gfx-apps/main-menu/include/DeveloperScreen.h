@@ -2,15 +2,24 @@
 
 #include <nx-engine.h>
 
-class LicenseScreen : public IScreen
+class DeveloperScreen : public IScreen
 {
   private:
     int m_color = 0;
-    InputManager* m_inputManager = nullptr;
+    InputManager *m_inputManager = nullptr;
+    FontManager *m_fontManager = nullptr;
+
+    Font *m_font = nullptr;
+    Font *m_msgFont = nullptr;
+
+    Text *m_message = nullptr;
+
+    const int NUM_COLORS = 5;
+    const Color COLORS[5] = {Colors::BLACK, Colors::BLUE, Colors::GREEN, Colors::RED, Colors::DARK};
 
   public:
-    LicenseScreen();
-    ~LicenseScreen();
+    DeveloperScreen();
+    ~DeveloperScreen();
 
     virtual int getNextScreenIndex() const override;
     virtual int getPreviousScreenIndex() const override;

@@ -53,8 +53,8 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++14
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lnx-engine -lcurl -lSDL2_mixer -lmodplug -lmpg123 -lFLAC -lvorbisidec -logg -lSDL2_ttf -lSDL2_gfx -lSDL2_image \
--lpng -ljpeg `/opt/devkitpro/portlibs/switch/bin/sdl2-config --libs` `/opt/devkitpro/portlibs/switch/bin/freetype-config --libs` -lnx -lconfig
+LIBS	:= -lnx-engine -lnx  -lcurl -lSDL2_mixer -lmodplug -lmpg123 -lFLAC -lvorbisidec -logg -lSDL2_ttf -lSDL2_gfx -lSDL2_image \
+-lpng -ljpeg `/opt/devkitpro/portlibs/switch/bin/sdl2-config --libs` `/opt/devkitpro/portlibs/switch/bin/freetype-config --libs` -lconfig
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing

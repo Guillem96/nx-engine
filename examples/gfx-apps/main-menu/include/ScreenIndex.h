@@ -1,0 +1,5 @@
+#pragma once
+
+#define MAIN_MENU_INDEX 0
+#define LICENSE_SCREEN_INDEX 1
+#define DEVELOPER_SCREEN_INDEX 2

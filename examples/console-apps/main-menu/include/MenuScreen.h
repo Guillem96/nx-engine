@@ -10,6 +10,8 @@ private:
     int m_selectedOption = 0;
     std::map<std::string, int> m_menuEntries;
     
+    InputManager* m_inputManager = nullptr;
+
     void printMenu();
     int getEntryIndex() const;
 

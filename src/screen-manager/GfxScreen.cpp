@@ -32,15 +32,13 @@ void GfxScreen::run()
     if (init())
     {
         while (m_running)
-        {
-            m_inputManager->update();
-            
+        {            
             update();
             draw();
 
             SDL_RenderPresent(m_renderer);
 
-            SDL_Color colour = m_bgColor.getColor();
+            SDL_Color colour = m_bgColor.get();
             SDL_SetRenderDrawColor(m_renderer, colour.r, colour.g, colour.b, colour.a);
             SDL_RenderClear(m_renderer);
         }
@@ -54,8 +52,7 @@ bool GfxScreen::init()
         return false;
     }
 
-    // Init the screen components
-    m_inputManager = new GfxInputManager();
+    m_factory = new GfxComponentFactory();
 
     m_running = true;
 
@@ -113,9 +110,8 @@ void GfxScreen::exitApp()
     m_screenList->destroy();
     delete m_screenList;
 
-    m_inputManager->destroy();
-    delete m_inputManager;
-
+    delete m_factory;
+    
     romfsExit();
     
     SDL_DestroyRenderer(m_renderer);
