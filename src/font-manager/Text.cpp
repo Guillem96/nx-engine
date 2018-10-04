@@ -1,19 +1,18 @@
 #include "font-manager/Text.h"
 
 Text::Text(const std::string &text, Font *font, const Vector2 &position, const Color &color)
-    : m_text(text),
+    : IDrawable(position),
+      m_text(text),
       m_font(font),
-      m_position(position),
       m_color(color)
 {
 }
 
 Text::Text(const std::string &text, Font *font, const Vector2 &position, const Color &color, unsigned int align)
-    : m_text(text),
+    : IDrawable(position, align),
+      m_text(text),
       m_font(font),
-      m_position(position),
-      m_color(color),
-      m_align(align)
+      m_color(color)
 {
 }
 
@@ -26,10 +25,6 @@ const std::string &Text::getText() const
     return m_text;
 }
 
-const Vector2 &Text::getPosition() const
-{
-    return m_position;
-}
 const Font *Text::getFont() const
 {
     return m_font;
@@ -47,75 +42,12 @@ const Vector2 Text::getTextDims()
     return Vector2((float)w, (float)h);
 }
 
-unsigned int Text::getAlignmentFlags() const
-{
-    return m_align;
-}
-
-float Text::getPaddingLeft() const
-{
-    return m_paddingLeft;
-}
-
-float Text::getPaddingRight() const
-{
-    return m_paddingRight;
-}
-
-float Text::getPaddingTop() const
-{
-    return m_paddingTop;
-}
-
-float Text::getPaddingBottom() const
-{
-    return m_paddingBottom;
-}
-
 void Text::setText(const std::string &text)
 {
     m_text = text;
 }
 
-void Text::setPosition(const Vector2 &position)
-{
-    m_position = position;
-}
-
 void Text::setColor(const Color &color)
 {
     m_color = color;
-}
-
-void Text::setAlignmentFlags(unsigned int flags)
-{
-    m_align = flags;
-}
-
-void Text::setPaddings(float left, float top, float right, float bottom)
-{
-    setPaddingLeft(left);
-    setPaddingTop(top);
-    setPaddingRight(right);
-    setPaddingBottom(bottom);
-}
-
-void Text::setPaddingLeft(float p)
-{
-    m_paddingLeft = p;
-}
-
-void Text::setPaddingRight(float p)
-{
-    m_paddingRight = p;
-}
-
-void Text::setPaddingTop(float p)
-{
-    m_paddingTop = p;
-}
-
-void Text::setPaddingBottom(float p)
-{
-    m_paddingBottom = p;
 }

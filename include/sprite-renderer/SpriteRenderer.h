@@ -16,6 +16,8 @@ class SpriteRenderer
     SDL_Window *m_window = nullptr;
     SDL_Renderer *m_renderer = nullptr;
 
+    void generateSpritePosition(Sprite *sprite);
+
   public:
     SpriteRenderer(SDL_Window *window, SDL_Renderer *renderer);
     ~SpriteRenderer();
