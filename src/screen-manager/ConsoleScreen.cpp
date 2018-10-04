@@ -1,7 +1,5 @@
 #include "screen-manager/ConsoleScreen.h"
 
-#include "exceptions/NxEngineException.h"
-
 #include <stdlib.h>
 
 ConsoleScreen::ConsoleScreen()
@@ -16,7 +14,7 @@ void ConsoleScreen::run()
         {
             update();
             draw();
-            
+
             gfxFlushBuffers();
             gfxSwapBuffers();
             gfxWaitForVsync();
@@ -69,10 +67,10 @@ void ConsoleScreen::exitApp()
     onExit();
 
     m_currentScreen->onExit();
-   
+
     m_screenList->destroy();
     delete m_screenList;
-    
+
     delete m_factory;
 
     gfxExit();

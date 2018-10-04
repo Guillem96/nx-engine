@@ -19,6 +19,7 @@ SOURCES		:=	src/input-manager src/screen-manager src/font-manager src/common
 DATA			:=	data
 INCLUDES	:=  include
 EXAMPLES 	:= $(wildcard examples/*/*) 
+
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------

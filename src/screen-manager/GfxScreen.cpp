@@ -1,7 +1,5 @@
 #include "screen-manager/GfxScreen.h"
 
-#include "exceptions/NxEngineException.h"
-
 GfxScreen::GfxScreen()
 {
 }
@@ -32,7 +30,7 @@ void GfxScreen::run()
     if (init())
     {
         while (m_running)
-        {            
+        {
             update();
             draw();
 
@@ -111,9 +109,9 @@ void GfxScreen::exitApp()
     delete m_screenList;
 
     delete m_factory;
-    
+
     romfsExit();
-    
+
     SDL_DestroyRenderer(m_renderer);
     SDL_DestroyWindow(m_window);
 

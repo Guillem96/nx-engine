@@ -20,5 +20,3 @@
 #include "font-manager/Font.h"
 #include "font-manager/Text.h"
 #include "font-manager/FontManager.h"
-
-#include "exceptions/NxEngineException.h"
