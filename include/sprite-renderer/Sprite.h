@@ -12,10 +12,10 @@ class Sprite
     friend class SpriteRenderer;
 
   private:
+    std::string m_path;
     Vector2 m_position;
     Vector2 m_scale;
     Vector2 m_size; //> Size is set by SpriteRenderer once the sprite queued to render
-    std::string m_path;
     unsigned int m_screenAlignment = ScreenAlignFlags::FREE;
 
   public:
