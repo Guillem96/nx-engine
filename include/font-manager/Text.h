@@ -5,19 +5,7 @@
 #include "font-manager/Font.h"
 #include "vectors/Vector2.h"
 #include "common/Color.h"
-
-enum TextAlignFlags
-{
-    FREE = 0x0,
-    // Horizontal alignment
-    LEFT = 0x1,
-    CENTER = 0x2,
-    RIGHT = 0x4,
-    // Vertical
-    TOP = 0x8,
-    MIDDLE = 0x10,
-    BOTTOM = 0x20,
-};
+#include "common/ScreenAlignFlags.h"
 
 class Text
 {
@@ -26,7 +14,7 @@ class Text
     Font *m_font = nullptr;
     Vector2 m_position;
     Color m_color;
-    unsigned int m_align = TextAlignFlags::FREE;
+    unsigned int m_align = ScreenAlignFlags::FREE;
 
     float m_paddingLeft = 5.0f;
     float m_paddingTop = 5.0f;

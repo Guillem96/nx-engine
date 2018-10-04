@@ -32,11 +32,11 @@ void LicenseScreen::build()
     m_font = new Font("romfs:/Raleway-Regular.ttf", 20);
     m_msgFont = new Font("romfs:/Impact_Label.ttf", 80);
 
-    m_message = new Text("GPL v3.0", m_msgFont, Vector2(), COLORS[0], TextAlignFlags::MIDDLE | TextAlignFlags::CENTER);
+    m_message = new Text("GPL v3.0", m_msgFont, Vector2(), COLORS[0], ScreenAlignFlags::MIDDLE | ScreenAlignFlags::CENTER);
     m_fontManager->addText(m_message);
 
     // Build controls
-    Text *controls = new Text("Press B to go back, < or > to change text colors", m_font, Vector2(), Colors::RED, TextAlignFlags::BOTTOM | TextAlignFlags::CENTER);
+    Text *controls = new Text("Press B to go back, < or > to change text colors", m_font, Vector2(), Colors::RED, ScreenAlignFlags::BOTTOM | ScreenAlignFlags::CENTER);
     m_fontManager->addText(controls);
 }
 

@@ -36,7 +36,7 @@ void MenuScreen::build()
     m_titleFont = new Font("romfs:/Pacifico.ttf", 100);
 
     // Can OR alignments but one must be from horizontal alignment and the other from vertical alignment
-    Text *title = new Text("MAIN MENU", m_titleFont, Vector2(), Colors::BLACK, TextAlignFlags::TOP | TextAlignFlags::CENTER);
+    Text *title = new Text("MAIN MENU", m_titleFont, Vector2(), Colors::BLACK, ScreenAlignFlags::TOP | ScreenAlignFlags::CENTER);
     m_fontManager->addText(title);
 
     // Build menu entries and controls
@@ -44,14 +44,14 @@ void MenuScreen::build()
     m_font = new Font("romfs:/Raleway-Regular.ttf", fontSize);
     for (auto &it : m_menuEntries)
     {
-        Text *t = new Text(it.first, m_font, Vector2(0.0f, 200.0f + (fontSize + 10.0f) * (float)m_textEntries.size()), Colors::BLACK, TextAlignFlags::LEFT);
+        Text *t = new Text(it.first, m_font, Vector2(0.0f, 200.0f + (fontSize + 10.0f) * (float)m_textEntries.size()), Colors::BLACK, ScreenAlignFlags::LEFT);
         t->setPaddingLeft(100.0f);
         m_textEntries.push_back(t);
         m_fontManager->addText(t);
     }
 
     // Build controls
-    Text *controls = new Text("Press B to exit, A to select an entry or arrows to navigate", m_font, Vector2(), Colors::RED, TextAlignFlags::BOTTOM | TextAlignFlags::CENTER);
+    Text *controls = new Text("Press B to exit, A to select an entry or arrows to navigate", m_font, Vector2(), Colors::RED, ScreenAlignFlags::BOTTOM | ScreenAlignFlags::CENTER);
     m_fontManager->addText(controls);
 }
 
