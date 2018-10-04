@@ -18,7 +18,7 @@ TARGET		:=	$(notdir $(CURDIR))
 SOURCES		:=	src/input-manager src/screen-manager src/font-manager src/common
 DATA			:=	data
 INCLUDES	:=  include
-
+EXAMPLES 	:= $(wildcard examples/*/*) 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			-I. \
 			-iquote $(CURDIR)/include/switch/ \
 
-.PHONY: clean all
+.PHONY: clean all examples
 
 #---------------------------------------------------------------------------------
 all: lib/lib$(TARGET).a lib/lib$(TARGET)d.a
@@ -113,10 +113,12 @@ dist-bin: all
 	@tar --exclude=*~ -cjf lib$(TARGET).tar.bz2 include lib
 
 dist-src:
-	@tar --exclude=*~ -cjf lib$(TARGET)-src.tar.bz2 include source Makefile
+	@tar --exclude=*~ -cjf lib$(TARGET)-src.tar.bz2 include src Makefile
 
 dist: dist-src dist-bin
 
+examples: all
+	for dir in $(EXAMPLES); do (cd "$$dir" && make clean && make); done
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...

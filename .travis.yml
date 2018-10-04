@@ -1,0 +1,25 @@
+sudo: required
+
+language: cpp
+
+compiler:
+  - gcc
+
+branches:
+  only:
+    - master
+    
+before_install:
+  - wget https://github.com/devkitPro/pacman/releases/download/devkitpro-pacman-1.0.1/devkitpro-pacman.deb
+  - sudo dpkg -i devkitpro-pacman.deb
+
+install:
+  - sudo /opt/devkitpro/pacman/bin/pacman -S $(sudo /opt/devkitpro/pacman/bin/pacman -Ssq switch-*) --noconfirm
+  - export NXENGINE=$(pwd)
+  
+script: make clean && make dist && make examples
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
