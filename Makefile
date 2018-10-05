@@ -114,7 +114,7 @@ dist-bin: all
 	@tar --exclude=*~ -cjf lib$(TARGET).tar.bz2 include lib
 
 dist-src:
-	@tar --exclude=*~ -cjf lib$(TARGET)-src.tar.bz2 include source Makefile
+	@tar --exclude=*~ -cjf lib$(TARGET)-src.tar.bz2 include src Makefile
 
 dist: dist-src dist-bin
 

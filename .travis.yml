@@ -5,6 +5,10 @@ language: cpp
 compiler:
   - gcc
 
+
+env:
+  - TRAVIS_TAG=$MAJOR_VERSION.$MINOR_VERSION
+
 branches:
   only:
     - master
@@ -16,7 +20,18 @@ before_install:
 install:
   - sudo /opt/devkitpro/pacman/bin/pacman -S $(sudo /opt/devkitpro/pacman/bin/pacman -Ssq switch-*) --noconfirm
 
-script: make clean && make all
+script: make clean && make dist
+
+deploy:
+  provider: releases
+  api_key: "$GITHUB_API_KEY"
+  file: 
+    - "libnx-engine.tar.bz2"
+    - "libnx-engine-src.tar.bz2"
+
+  skip_cleanup: true
+  on:
+    tags: true
 
 notifications:
   email:

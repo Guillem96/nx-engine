@@ -8,3 +8,6 @@ output/
 # Visual Studio Code
 .DS_Store
 .vscode
+
+# Dist
+*.tar.bz2
