@@ -21,7 +21,7 @@ void SpriteRenderer::destroy()
 {
     for (size_t i = 0; i < m_sprites.size(); i++)
     {
-        free(m_textures[i]);
+        SDL_DestroyTexture(m_textures[i]);
         delete m_sprites[i];
     }
 }
@@ -46,8 +46,8 @@ void SpriteRenderer::draw()
         SDL_Rect rect;
         rect.x = m_sprites[i]->getPosition().x;
         rect.y = m_sprites[i]->getPosition().y;
-        rect.w = m_sprites[i]->getSize().x;
-        rect.h = m_sprites[i]->getSize().y;
+        rect.w = m_sprites[i]->getSize().x * m_sprites[i]->getScale().x;
+        rect.h = m_sprites[i]->getSize().y * m_sprites[i]->getScale().y;
 
         SDL_RenderCopy(m_renderer, m_textures[i], NULL, &rect);
     }
@@ -62,6 +62,9 @@ void SpriteRenderer::generateSpritePosition(Sprite *sprite)
     SDL_GetWindowSize(m_window, &screenWidth, &screenHeight);
 
     Vector2 dims = sprite->getSize();
+    dims.x *= sprite->getScale().x;
+    dims.y *= sprite->getScale().y;
+
     Vector2 spritePos = sprite->getPosition();
 
     // Horizontal alignment
