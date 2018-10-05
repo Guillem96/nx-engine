@@ -10,3 +10,8 @@ FontManager *GfxComponentFactory::createFontManager(GfxScreen *screen)
 {
     return new FontManager(screen->getSDLWindow(), screen->getSDLRenderer());
 }
+
+SpriteRenderer *GfxComponentFactory::createSpriteRenderer(GfxScreen *screen)
+{
+    return new SpriteRenderer(screen->getSDLWindow(), screen->getSDLRenderer());
+}

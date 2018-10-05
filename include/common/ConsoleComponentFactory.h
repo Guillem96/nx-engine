@@ -11,7 +11,12 @@ class ConsoleComponentFactory : public ComponentFactory
         return new ConsoleInputManager();
     }
 
-    virtual FontManager *createFontManager(GfxScreen* screen) override 
+    virtual FontManager *createFontManager(GfxScreen *screen) override
+    {
+        return NULL;
+    }
+
+    virtual SpriteRenderer *createSpriteRenderer(GfxScreen *screen) override
     {
         return NULL;
     }

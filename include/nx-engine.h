@@ -5,6 +5,7 @@
 #include "common/ComponentFactory.h"
 #include "common/ConsoleComponentFactory.h"
 #include "common/GfxComponentFactory.h"
+#include "common/ScreenAlignFlags.h"
 
 #include "vectors/Vector2.h"
 
@@ -20,3 +21,6 @@
 #include "font-manager/Font.h"
 #include "font-manager/Text.h"
 #include "font-manager/FontManager.h"
+
+#include "sprite-renderer/Sprite.h"
+#include "sprite-renderer/SpriteRenderer.h"

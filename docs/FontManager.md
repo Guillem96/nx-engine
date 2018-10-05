@@ -25,13 +25,13 @@ Text *title = new Text("MAIN MENU",                                    // Text t
                         m_titleFont,                                   // Specify the font
                         Vector2(),                                     // Text position, in this case is useless because vertical and horizontal alignment is set
                         Colors::BLACK,                                 // Text color
-                        TextAlignFlags::TOP | TextAlignFlags::CENTER); // Set the alignment
+                        ScreenAlignFlags::TOP | ScreenAlignFlags::CENTER); // Set the alignment
 m_fontManager->addText(title);
 ```
 
 ## Font Manager API
 
-Take a look to [FontManager.h](src/include/font-manager/FontManager.h)
+Take a look to [FontManager.h](../include/font-manager/FontManager.h)
 
 ```cpp
 // Do not care about constructors, ComponentFactory takes care of them
@@ -50,7 +50,7 @@ void destroy();
 
 ## How to use FontManager
 
-In the build method of an IScreen you are able to create the FontManager object using the following instruction: ``m_screen->factory()->createFontManager((GfxScreen *)m_screen)``, where ``m_screen`` is the reference to our GfxScrenManager.
+In the build method of an IScreen you are able to create the FontManager object using the following instruction: ``m_screen->factory()->createFontManager((GfxScreen *)m_screen)``, where ``m_screen`` is the reference to our GfxScreenManager.
 Be careful because FontManager needs a reference to a GfxScreen, so it means that you won't be able to create a FontManager object when you are working with a ConsoleScreen.
 
 *Example:*
@@ -64,7 +64,7 @@ void MyScreen::build()
   m_fontManager->init();
 
   // Build some text 
-  m_message = new Text("Guillem96", m_msgFont, Vector2(), Colors::BLACK, TextAlignFlags::MIDDLE | TextAlignFlags::CENTER);
+  m_message = new Text("Guillem96", m_msgFont, Vector2(), Colors::BLACK, ScreenAlignFlags::MIDDLE | ScreenAlignFlags::CENTER);
   m_fontManager->addText(m_message);
 }
 

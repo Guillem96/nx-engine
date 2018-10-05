@@ -46,7 +46,7 @@ void FontManager::draw()
 
 void FontManager::generateTextPosition(Text *t)
 {
-    if (t->getAlignmentFlags() == TextAlignFlags::FREE)
+    if (t->getAlignmentFlags() == ScreenAlignFlags::FREE)
         return;
 
     int screenWidth, screenHeight;
@@ -56,31 +56,31 @@ void FontManager::generateTextPosition(Text *t)
     Vector2 textPos = t->getPosition();
 
     // Horizontal alignment
-    if (t->getAlignmentFlags() & TextAlignFlags::CENTER)
+    if (t->getAlignmentFlags() & ScreenAlignFlags::CENTER)
     {
         float screenCenter = screenWidth / 2.0f;
         textPos.x = screenCenter - dims.x / 2.0f;
     }
-    else if (t->getAlignmentFlags() & TextAlignFlags::LEFT)
+    else if (t->getAlignmentFlags() & ScreenAlignFlags::LEFT)
     {
         textPos.x = t->getPaddingLeft();
     }
-    else if (t->getAlignmentFlags() & TextAlignFlags::RIGHT)
+    else if (t->getAlignmentFlags() & ScreenAlignFlags::RIGHT)
     {
         textPos.x = screenWidth - dims.x - t->getPaddingRight();
     }
 
     // Vertical alignment
-    if (t->getAlignmentFlags() & TextAlignFlags::MIDDLE)
+    if (t->getAlignmentFlags() & ScreenAlignFlags::MIDDLE)
     {
         float screenCenter = screenHeight / 2.0f;
         textPos.y = screenCenter - dims.y / 2.0f;
     }
-    else if (t->getAlignmentFlags() & TextAlignFlags::TOP)
+    else if (t->getAlignmentFlags() & ScreenAlignFlags::TOP)
     {
         textPos.y = t->getPaddingTop();
     }
-    else if (t->getAlignmentFlags() & TextAlignFlags::BOTTOM)
+    else if (t->getAlignmentFlags() & ScreenAlignFlags::BOTTOM)
     {
         textPos.y = screenHeight - dims.y - t->getPaddingBottom();
     }
