@@ -23,5 +23,6 @@ class Sprite : public IDrawable
     const Vector2 &getScale();
     const Vector2 &getSize(); //> Will only work after sprite is added to the sprite renderer
 
+    // Allows you to modify the image size
     void setScale(const Vector2 &scale);
 };
