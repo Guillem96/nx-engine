@@ -2,11 +2,8 @@
 
 #include "screen-manager/ScreenList.h"
 #include "screen-manager/IScreen.h"
-
 #include "input-manager/InputManager.h"
-
 #include "font-manager/FontManager.h"
-
 #include "common/ComponentFactory.h"
 
 class IMainScreen
@@ -20,8 +17,8 @@ class IMainScreen
     virtual int getScreenWidth() const = 0;
     virtual int getScreenHeight() const = 0;
 
-    ComponentFactory* factory() const;
-    
+    ComponentFactory *factory() const;
+
   protected:
     IMainScreen()
     {
@@ -34,7 +31,7 @@ class IMainScreen
 
     bool m_running = false;
 
-    ComponentFactory* m_factory = nullptr;
+    ComponentFactory *m_factory = nullptr;
 
     // Called on initialization
     virtual void onInit() = 0;

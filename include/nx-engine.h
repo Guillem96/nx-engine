@@ -23,5 +23,4 @@
 #include "font-manager/FontManager.h"
 
 #include "sprite-renderer/Sprite.h"
-
-#include "exceptions/NxEngineException.h"
+#include "sprite-renderer/SpriteRenderer.h"

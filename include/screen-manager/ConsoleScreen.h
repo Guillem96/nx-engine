@@ -1,13 +1,10 @@
 #pragma once
 
 #include "screen-manager/IMainScreen.h"
-
 #include <switch.h>
 
 #include "input-manager/ConsoleInputManager.h"
-
 #include "common/ConsoleComponentFactory.h"
-
 
 class ConsoleScreen : public IMainScreen
 {
