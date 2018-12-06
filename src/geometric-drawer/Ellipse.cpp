@@ -11,6 +11,6 @@ Ellipse::Ellipse(const Vector2 &center,
     Figure(std::vector<Vector2 *>(), strokeColor, backgroundColor, strokeWidth, filled);
 }
 
-void Ellipse::Ellipse draw() override
+void Ellipse::draw()
 {
 }

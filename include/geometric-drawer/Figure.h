@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-
 #include "vectors/Vector2.h"
 #include "common/Color.h"
 
@@ -15,6 +14,8 @@ class Figure
     bool m_isFilled;
 
   public:
+    Figure() {}
+
     Figure(const std::vector<Vector2 *> &points, const Color &strokeColor,
            const Color &backgroundColor,
            float strokeWidth,
@@ -25,7 +26,7 @@ class Figure
           m_strokeWidth(strokeWidth),
           m_isFilled(filled) {}
 
-    virtual ~Figure() {}
+    virtual ~Figure();
 
     std::vector<Vector2 *> &getPoints() { return m_points; }
     const Color &getStrokeColor() { return m_strokeColor; }
