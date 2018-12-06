@@ -1,19 +1,11 @@
 #pragma once
 
 #include "geometric-drawer/Figure.h"
-#include "vectors/Vector3.h"
 
 class Triangle : public Figure
 {
-  private:
-    Vector3 m_points;
-
   public:
-    Triangle(const Color &color, float strokeWidth, bool filled, const Vector3 &points)
-        : Figure(Vector2(), color, strokeWidth, filled), m_points(points) {}
+    Triangle(const std::vector<Vector2 &> &points, const Color &strokeColor, const Color &backgroundColor, float strokeWidth, bool filled)
+        : Figure(points, strokeColor, backgroundColor, strokeWidth, filled) {}
     virtual ~Triangle() {}
-
-    const Vector3 &getPoints() { return m_points; }
-
-    void setPoints(const Vector3 &points) { m_points = points; }
-};
+}

@@ -5,14 +5,18 @@
 class Ellipse : public Figure
 {
   private:
+    Vector2 m_center;
     Vector2 m_radius;
 
   public:
-    Ellipse(const Vector2 &position, const Color &color, float strokeWidth, bool filled, const Vector2 &radius)
-        : Figure(position, color, strokeWidth, filled), m_radius(radius) {}
+    Ellipse(const Vector2 &center, const Color &strokeColor, const Color &backgroundColor, float strokeWidth, bool filled, const Vector2 &radius);
     virtual ~Ellipse() {}
 
+    const Vector2 &getCenter() { return m_center; }
     const Vector2 &getRadius() { return m_radius; }
 
     void setRadius(const Vector2 &radius) { m_radius = radius; }
+    void setCenter(const Vector2 &center) { m_center = center; }
+
+    virtual void draw() override;
 };

@@ -9,4 +9,5 @@ class GfxComponentFactory : public ComponentFactory
     virtual InputManager *createInputManager() override;
     virtual FontManager *createFontManager(GfxScreen *screen) override;
     virtual SpriteRenderer *createSpriteRenderer(GfxScreen *screen) override;
+    virtual GeometricDrawer *createGeometricDrawer(GfxScreen *screen) override;
 };

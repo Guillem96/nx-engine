@@ -3,6 +3,8 @@
 #include <SDL2/SDL.h>
 #include <vector>
 
+#include "geometric-drawer/Figure.h"
+
 class GeometricDrawer
 {
   private:

@@ -15,3 +15,8 @@ SpriteRenderer *GfxComponentFactory::createSpriteRenderer(GfxScreen *screen)
 {
     return new SpriteRenderer(screen->getSDLWindow(), screen->getSDLRenderer());
 }
+
+GeometricDrawer *GfxComponentFactory::createGeometricDrawer(GfxScreen *screen)
+{
+    return new GeometricDrawer(screen->getSDLWindow(), screen->getSDLRenderer());
+}
