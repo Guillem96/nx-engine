@@ -23,6 +23,8 @@ class FigureBuilder
     // Ellipse
     Vector2 m_center;
     Vector2 m_radius;
+    bool m_centerCalled = false;
+    bool m_radiusCalled = false;
 
     // Rectangle
     Vector2 m_position;

@@ -21,7 +21,8 @@ void GeometricDrawer::draw()
 {
     for (Figure *f : m_figureList)
     {
-        f->draw();
+        if (f != nullptr)
+            f->draw(m_renderer);
     }
 }
 
