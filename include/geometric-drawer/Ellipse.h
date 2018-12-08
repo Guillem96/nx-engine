@@ -18,5 +18,5 @@ class Ellipse : public Figure
     void setRadius(const Vector2 &radius) { m_radius = radius; }
     void setCenter(const Vector2 &center) { m_center = center; }
 
-    virtual void draw() override;
+    virtual void draw(SDL_Renderer *renderer) override;
 };

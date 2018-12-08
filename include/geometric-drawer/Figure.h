@@ -4,6 +4,8 @@
 #include "vectors/Vector2.h"
 #include "common/Color.h"
 
+#include <SDL2/SDL2_gfxPrimitives.h>
+
 class Figure
 {
   private:
@@ -40,5 +42,5 @@ class Figure
     void setStrokeWidth(float width) { m_strokeWidth = width; }
     void setIsFilled(bool isFilled) { m_isFilled = isFilled; }
 
-    virtual void draw();
+    virtual void draw(SDL_Renderer *renderer);
 };

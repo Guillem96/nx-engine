@@ -46,6 +46,13 @@ FigureBuilder *FigureBuilder::strokeColor(const Color &color)
     return this;
 }
 
+FigureBuilder *FigureBuilder::color(const Color &color)
+{
+    m_strokeColor = color;
+    m_backgroundColor = color;
+    return this;
+}
+
 FigureBuilder *FigureBuilder::backgroundColor(const Color &color)
 {
     m_backgroundColor = color;
@@ -62,6 +69,9 @@ Figure *FigureBuilder::build()
 {
     if (m_isRectangle && m_isEllipse)
         return nullptr;
+
+    if (m_points.size() == 2)
+        return new Line(m_points, m_strokeColor, m_strokeWidth);
 
     if (m_isRectangle)
         return new Rectangle(m_position, m_strokeColor, m_backgroundColor, m_strokeWidth, m_isFilled, m_size);
