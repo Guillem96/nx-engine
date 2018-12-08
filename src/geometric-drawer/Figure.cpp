@@ -28,12 +28,15 @@ void Figure::draw(SDL_Renderer *renderer)
         vy[i] = vertices[i]->y;
     }
 
-    // Render the figure body
-    SDL_Color bodyColor = getBackgroundColor().get();
-    int result = filledPolygonRGBA(renderer, vx, vy, vertices.size(), bodyColor.r, bodyColor.g, bodyColor.b, bodyColor.a);
+    if (m_isFilled)
+    {
+        // Render the figure body
+        SDL_Color bodyColor = getBackgroundColor().get();
+        int result = filledPolygonRGBA(renderer, vx, vy, vertices.size(), bodyColor.r, bodyColor.g, bodyColor.b, bodyColor.a);
 
-    if (result != 0)
-        return;
+        if (result != 0)
+            return;
+    }
 
     // Render figure stroke
     SDL_Color strokeColor = getStrokeColor().get();

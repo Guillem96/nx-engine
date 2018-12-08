@@ -14,14 +14,17 @@ Ellipse::Ellipse(const Vector2 &center,
 void Ellipse::draw(SDL_Renderer *renderer)
 {
     // Render the figure body
-    SDL_Color bodyColor = getBackgroundColor().get();
-    int result = filledEllipseRGBA(renderer,
-                                   getCenter().x, getCenter().y,
-                                   getRadius().x, getRadius().y,
-                                   bodyColor.r, bodyColor.g, bodyColor.b, bodyColor.a);
+    if (getIsFilled())
+    {
+        SDL_Color bodyColor = getBackgroundColor().get();
+        int result = filledEllipseRGBA(renderer,
+                                       getCenter().x, getCenter().y,
+                                       getRadius().x, getRadius().y,
+                                       bodyColor.r, bodyColor.g, bodyColor.b, bodyColor.a);
 
-    if (result != 0)
-        return;
+        if (result != 0)
+            return;
+    }
 
     // Render figure stroke
     SDL_Color strokeColor = getStrokeColor().get();
