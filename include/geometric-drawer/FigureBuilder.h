@@ -40,6 +40,7 @@ class FigureBuilder
     FigureBuilder *strokeWidth(float width);
     FigureBuilder *strokeColor(const Color &color);
     FigureBuilder *backgroundColor(const Color &color);
+    FigureBuilder *color(const Color &color);
     FigureBuilder *filled(bool filled);
 
     Figure *build();
