@@ -10,7 +10,6 @@ GeometricDrawer::~GeometricDrawer()
 
 void GeometricDrawer::init()
 {
-    // TODO: Init
 }
 
 void GeometricDrawer::add(Figure *figure)
@@ -20,10 +19,10 @@ void GeometricDrawer::add(Figure *figure)
 
 void GeometricDrawer::draw()
 {
-    // for (Figure *f : m_figureList)
-    // {
-    //     // TODO: Render figures
-    // }
+    for (Figure *f : m_figureList)
+    {
+        f->draw();
+    }
 }
 
 void GeometricDrawer::destroy()
