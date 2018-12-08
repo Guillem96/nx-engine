@@ -43,7 +43,7 @@ class FigureBuilder
     FigureBuilder *strokeColor(const Color &color);
     FigureBuilder *backgroundColor(const Color &color);
     FigureBuilder *color(const Color &color);
-    FigureBuilder *filled(bool filled);
+    FigureBuilder *filled();
 
     Figure *build();
 };
