@@ -43,9 +43,9 @@ void PolygonsScreen::build()
 
     Figure *line = FigureBuilder()
                        .color(Colors::BLUE)
-                       ->strokeWidth(30.0f)
-                       ->point(new Vector2(10.0f, 50.0f))
-                       ->point(new Vector2(1000.0f, 50.0f))
+                       ->width(20.0f)
+                       ->point(new Vector2(10.0f, 80.0f))
+                       ->point(new Vector2(1000.0f, 80.0f))
                        ->build();
 
     m_geometricDrawer->add(ellipse);

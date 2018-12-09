@@ -3,8 +3,8 @@
 Ellipse::Ellipse(const Vector2 &center,
                  const Color &strokeColor,
                  const Color &backgroundColor,
-                 float strokeWidth, bool filled,
-                 const Vector2 &radius) : Figure(std::vector<Vector2 *>(), strokeColor, backgroundColor, strokeWidth, filled)
+                 bool filled,
+                 const Vector2 &radius) : Figure(std::vector<Vector2 *>(), strokeColor, backgroundColor, filled)
 {
     m_center = center;
     m_radius = radius;

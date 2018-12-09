@@ -7,6 +7,6 @@ void Line::draw(SDL_Renderer *renderer)
     thickLineRGBA(renderer,
                   vertices[0]->x, vertices[0]->y,
                   vertices[1]->x, vertices[1]->y,
-                  getStrokeWidth(),
+                  m_width,
                   color.r, color.g, color.b, color.a);
 }

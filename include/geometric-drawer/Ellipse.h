@@ -9,7 +9,7 @@ class Ellipse : public Figure
     Vector2 m_radius;
 
   public:
-    Ellipse(const Vector2 &center, const Color &strokeColor, const Color &backgroundColor, float strokeWidth, bool filled, const Vector2 &radius);
+    Ellipse(const Vector2 &center, const Color &strokeColor, const Color &backgroundColor, bool filled, const Vector2 &radius);
     virtual ~Ellipse() {}
 
     const Vector2 &getCenter() { return m_center; }

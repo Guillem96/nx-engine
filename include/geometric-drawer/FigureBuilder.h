@@ -17,7 +17,6 @@ class FigureBuilder
     std::vector<Vector2 *> m_points;
     Color m_strokeColor = Colors::BLACK;
     Color m_backgroundColor = Color(0, 0, 0, 0);
-    float m_strokeWidth = 0;
     bool m_isFilled = false;
 
     // Ellipse
@@ -30,6 +29,9 @@ class FigureBuilder
     Vector2 m_position;
     Vector2 m_size;
 
+    // Line
+    float m_width = 2.0f;
+
   public:
     FigureBuilder() {}
     ~FigureBuilder() {}
@@ -39,7 +41,7 @@ class FigureBuilder
     FigureBuilder *position(const Vector2 &position);
     FigureBuilder *radius(const Vector2 &radius);
     FigureBuilder *center(const Vector2 &center);
-    FigureBuilder *strokeWidth(float width);
+    FigureBuilder *width(float width);
     FigureBuilder *strokeColor(const Color &color);
     FigureBuilder *backgroundColor(const Color &color);
     FigureBuilder *color(const Color &color);
