@@ -119,7 +119,7 @@ dist-src:
 dist: dist-src dist-bin
 
 examples: all
-	for dir in $(EXAMPLES); do (cd "$$dir" && make clean && make); done
+	for dir in $(EXAMPLES); do (cd "$$dir" &&  make); done
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...

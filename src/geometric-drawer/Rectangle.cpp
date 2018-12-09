@@ -5,16 +5,19 @@ Rectangle::Rectangle(const Vector2 &position,
                      const Color &backgroundColor,
                      float strokeWidth,
                      bool filled,
-                     const Vector2 &size)
+                     const Vector2 &size) : Figure(std::vector<Vector2 *>(),
+                                                   strokeColor,
+                                                   backgroundColor,
+                                                   strokeWidth, filled)
 {
     m_size = size;
     m_position = position;
 
     std::vector<Vector2 *> points;
-    points.push_back(&m_position);
-    points.push_back(new Vector2(position.x + size.x, position.y));
+    points.push_back(new Vector2(m_position.x, m_position.y));
     points.push_back(new Vector2(position.x, position.y + size.y));
     points.push_back(new Vector2(position.x + size.x, position.y + size.y));
+    points.push_back(new Vector2(position.x + size.x, position.y));
 
-    Figure(points, strokeColor, backgroundColor, strokeWidth, filled);
+    setPoints(points);
 }

@@ -10,8 +10,8 @@
 class FigureBuilder
 {
   private:
-    bool m_isEllipse;
-    bool m_isRectangle;
+    bool m_isEllipse = false;
+    bool m_isRectangle = false;
 
     // Figure
     std::vector<Vector2 *> m_points;
@@ -35,10 +35,10 @@ class FigureBuilder
     ~FigureBuilder() {}
 
     FigureBuilder *point(Vector2 *point);
-    FigureBuilder *size(Vector2 *size);
-    FigureBuilder *position(Vector2 *position);
-    FigureBuilder *radius(Vector2 *radius);
-    FigureBuilder *center(Vector2 *center);
+    FigureBuilder *size(const Vector2 &size);
+    FigureBuilder *position(const Vector2 &position);
+    FigureBuilder *radius(const Vector2 &radius);
+    FigureBuilder *center(const Vector2 &center);
     FigureBuilder *strokeWidth(float width);
     FigureBuilder *strokeColor(const Color &color);
     FigureBuilder *backgroundColor(const Color &color);

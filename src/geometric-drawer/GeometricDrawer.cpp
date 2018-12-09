@@ -22,7 +22,13 @@ void GeometricDrawer::draw()
     for (Figure *f : m_figureList)
     {
         if (f != nullptr)
+        {
             f->draw(m_renderer);
+        }
+        else
+        {
+            printf("Rectangle is hereee");
+        }
     }
 }
 

@@ -9,7 +9,11 @@ class PolygonsScreen : public IScreen
 {
   private:
     InputManager *m_inputManager = nullptr;
-    // GeometricDrawer *m_geometricDrawer = nullptr;
+
+    GeometricDrawer *m_geometricDrawer = nullptr;
+
+    FontManager *m_fontManager = nullptr;
+    Font *m_titleFont = nullptr;
 
     // std::vector<Figure *> m_figures;
 

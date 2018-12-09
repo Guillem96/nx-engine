@@ -6,33 +6,35 @@ FigureBuilder *FigureBuilder::point(Vector2 *point)
     return this;
 }
 
-FigureBuilder *FigureBuilder::size(Vector2 *size)
+FigureBuilder *FigureBuilder::size(const Vector2 &size)
 {
+    printf("Setting rectangle size");
     m_isRectangle = true;
-    m_size = *size;
+    m_size = size;
     return this;
 }
 
-FigureBuilder *FigureBuilder::position(Vector2 *position)
+FigureBuilder *FigureBuilder::position(const Vector2 &position)
 {
+    printf("Setting rectangle pos");
     m_isRectangle = true;
-    m_position = *position;
+    m_position = position;
     return this;
 }
 
-FigureBuilder *FigureBuilder::radius(Vector2 *radius)
+FigureBuilder *FigureBuilder::radius(const Vector2 &radius)
 {
     m_isEllipse = true;
     m_radiusCalled = true;
-    m_radius = *radius;
+    m_radius = radius;
     return this;
 }
 
-FigureBuilder *FigureBuilder::center(Vector2 *center)
+FigureBuilder *FigureBuilder::center(const Vector2 &center)
 {
     m_isEllipse = true;
     m_centerCalled = true;
-    m_center = *center;
+    m_center = center;
     return this;
 }
 
@@ -76,7 +78,10 @@ Figure *FigureBuilder::build()
         return new Line(m_points, m_strokeColor, m_strokeWidth);
 
     if (m_isRectangle)
+    {
+        printf("Building a rectangle");
         return new Rectangle(m_position, m_strokeColor, m_backgroundColor, m_strokeWidth, m_isFilled, m_size);
+    }
 
     if (m_isEllipse && m_centerCalled && m_radiusCalled)
         return new Ellipse(m_center, m_strokeColor, m_backgroundColor, m_strokeWidth, m_isFilled, m_radius);
