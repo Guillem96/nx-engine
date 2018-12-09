@@ -10,13 +10,9 @@ void PolygonsScreen::build()
     m_geometricDrawer = m_screen->factory()->createGeometricDrawer((GfxScreen *)m_screen);
     m_geometricDrawer->init();
 
-    printf("Before fontmanager init");
-
     // Create the InputManager component using a factory
     m_fontManager = m_screen->factory()->createFontManager((GfxScreen *)m_screen);
     m_fontManager->init();
-
-    printf("After fontmanager init");
 
     m_titleFont = new Font("romfs:/fonts/Raleway-Regular.ttf", 100);
 
@@ -31,11 +27,11 @@ void PolygonsScreen::build()
                           ->center(Vector2(200.0f, 200.0f))
                           ->radius(Vector2(30.0f, 60.0f))
                           ->filled()
+                          ->bordered()
                           ->build();
 
     Figure *rectangle = FigureBuilder()
-                            .strokeColor(Colors::DARK)
-                            ->backgroundColor(Colors::RED)
+                            .backgroundColor(Colors::RED)
                             ->position(Vector2(400.0f, 400.0f))
                             ->size(Vector2(200.0f, 300.0f))
                             ->filled()

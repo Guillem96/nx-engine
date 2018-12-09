@@ -9,7 +9,7 @@ class Line : public Figure
 
   public:
     Line(const std::vector<Vector2 *> &points, const Color &color, float width)
-        : Figure(points, color, color, false), m_width(width) {}
+        : Figure(points, color, color, false, false), m_width(width) {}
     virtual ~Line() {}
 
     void draw(SDL_Renderer *renderer);

@@ -18,6 +18,7 @@ class FigureBuilder
     Color m_strokeColor = Colors::BLACK;
     Color m_backgroundColor = Color(0, 0, 0, 0);
     bool m_isFilled = false;
+    bool m_isBordered = false;
 
     // Ellipse
     Vector2 m_center;
@@ -46,6 +47,7 @@ class FigureBuilder
     FigureBuilder *backgroundColor(const Color &color);
     FigureBuilder *color(const Color &color);
     FigureBuilder *filled();
+    FigureBuilder *bordered();
 
     Figure *build();
 };

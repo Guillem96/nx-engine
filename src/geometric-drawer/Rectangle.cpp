@@ -4,10 +4,12 @@ Rectangle::Rectangle(const Vector2 &position,
                      const Color &strokeColor,
                      const Color &backgroundColor,
                      bool filled,
+                     bool bordered,
                      const Vector2 &size) : Figure(std::vector<Vector2 *>(),
                                                    strokeColor,
                                                    backgroundColor,
-                                                   filled)
+                                                   filled,
+                                                   bordered)
 {
     m_size = size;
     m_position = position;

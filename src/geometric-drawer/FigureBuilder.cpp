@@ -63,6 +63,12 @@ FigureBuilder *FigureBuilder::filled()
     return this;
 }
 
+FigureBuilder *FigureBuilder::bordered()
+{
+    m_isBordered = true;
+    return this;
+}
+
 FigureBuilder *FigureBuilder::width(float width)
 {
     m_width = width;
@@ -80,16 +86,16 @@ Figure *FigureBuilder::build()
     if (m_isRectangle)
     {
         printf("Building a rectangle");
-        return new Rectangle(m_position, m_strokeColor, m_backgroundColor, m_isFilled, m_size);
+        return new Rectangle(m_position, m_strokeColor, m_backgroundColor, m_isFilled, m_isBordered, m_size);
     }
 
     if (m_isEllipse && m_centerCalled && m_radiusCalled)
-        return new Ellipse(m_center, m_strokeColor, m_backgroundColor, m_isFilled, m_radius);
+        return new Ellipse(m_center, m_strokeColor, m_backgroundColor, m_isFilled, m_isBordered, m_radius);
     else if (m_isEllipse && (!m_centerCalled || m_radiusCalled))
         return nullptr;
 
     if (m_points.size() == 3)
-        return new Triangle(m_points, m_strokeColor, m_backgroundColor, m_isFilled);
+        return new Triangle(m_points, m_strokeColor, m_backgroundColor, m_isFilled, m_isBordered);
 
-    return new Figure(m_points, m_strokeColor, m_backgroundColor, m_isFilled);
+    return new Figure(m_points, m_strokeColor, m_backgroundColor, m_isFilled, m_isBordered);
 }

@@ -10,7 +10,7 @@ class Rectangle : public Figure
 
   public:
     // Position referes to bottom left vertex
-    Rectangle(const Vector2 &position, const Color &strokeColor, const Color &backgroundColor, bool filled, const Vector2 &size);
+    Rectangle(const Vector2 &position, const Color &strokeColor, const Color &backgroundColor, bool filled, bool bordered, const Vector2 &size);
 
     virtual ~Rectangle() {}
 

@@ -38,7 +38,10 @@ void Figure::draw(SDL_Renderer *renderer)
             return;
     }
 
-    // Render figure stroke
-    SDL_Color strokeColor = getStrokeColor().get();
-    polygonRGBA(renderer, vx, vy, vertices.size(), strokeColor.r, strokeColor.g, strokeColor.b, strokeColor.a);
+    if (m_isBordered)
+    {
+        // Render figure stroke
+        SDL_Color strokeColor = getStrokeColor().get();
+        polygonRGBA(renderer, vx, vy, vertices.size(), strokeColor.r, strokeColor.g, strokeColor.b, strokeColor.a);
+    }
 }
