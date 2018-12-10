@@ -124,6 +124,7 @@ examples: all
 clean:
 	@echo clean ...
 	@rm -fr release debug lib *.bz2
+	for dir in $(EXAMPLES); do (cd "$$dir" &&  make clean); done
 
 #---------------------------------------------------------------------------------
 else
