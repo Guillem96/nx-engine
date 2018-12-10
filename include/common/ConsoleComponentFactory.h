@@ -20,4 +20,9 @@ class ConsoleComponentFactory : public ComponentFactory
     {
         return NULL;
     }
+
+    virtual GeometricDrawer *createGeometricDrawer(GfxScreen *screen) override
+    {
+        return NULL;
+    }
 };

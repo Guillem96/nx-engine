@@ -30,7 +30,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - icon.jpg
 #     - <libnx folder>/default_icon.jpg
 #---------------------------------------------------------------------------------
-TARGET		:=	output/$(notdir $(CURDIR))
+TARGET		:=	out/$(notdir $(CURDIR))
 BUILD			:=	build
 SOURCES		:=	src
 DATA			:=	data
@@ -142,11 +142,16 @@ endif
 .PHONY: $(BUILD) clean all
 
 #---------------------------------------------------------------------------------
-all: $(BUILD)
+all: directories $(BUILD)
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
 	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+
+#---------------------------------------------------------------------------------
+
+directories:
+	mkdir -p out
 
 #---------------------------------------------------------------------------------
 clean:

@@ -15,7 +15,7 @@ include $(DEVKITPRO)/devkitA64/base_rules
 # INCLUDES is a list of directories containing header files
 #---------------------------------------------------------------------------------
 TARGET		:=	$(notdir $(CURDIR))
-SOURCES		:=	src/input-manager src/screen-manager src/font-manager src/common src/sprite-renderer
+SOURCES		:=	src/input-manager src/screen-manager src/font-manager src/common src/sprite-renderer src/geometric-drawer
 DATA			:=	data
 INCLUDES	:=  include
 EXAMPLES 	:= $(wildcard examples/*/*) 
@@ -119,7 +119,7 @@ dist-src:
 dist: dist-src dist-bin
 
 examples: all
-	for dir in $(EXAMPLES); do (cd "$$dir" && make clean && make); done
+	for dir in $(EXAMPLES); do (cd "$$dir" &&  make); done
 #---------------------------------------------------------------------------------
 clean:
 	@echo clean ...

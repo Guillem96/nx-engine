@@ -4,6 +4,7 @@ lib/
 debug/
 build/
 output/
+out/
 
 # Visual Studio Code
 .DS_Store

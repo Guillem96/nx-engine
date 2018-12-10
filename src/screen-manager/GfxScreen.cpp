@@ -72,6 +72,10 @@ bool GfxScreen::initSystems()
         return false;
     }
 
+    socketInitializeDefault();
+    nxlinkStdio();
+    printf("printf output now goes to nxlink server\n");
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         std::string errorMsg = "Couldn't initialize SDL Video: " + std::string(SDL_GetError());
@@ -110,6 +114,7 @@ void GfxScreen::exitApp()
 
     delete m_factory;
 
+    socketExit();
     romfsExit();
 
     SDL_DestroyRenderer(m_renderer);

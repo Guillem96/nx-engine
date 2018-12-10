@@ -24,3 +24,11 @@
 
 #include "sprite-renderer/Sprite.h"
 #include "sprite-renderer/SpriteRenderer.h"
+
+#include "geometric-drawer/Figure.h"
+#include "geometric-drawer/Rectangle.h"
+#include "geometric-drawer/Triangle.h"
+#include "geometric-drawer/Ellipse.h"
+#include "geometric-drawer/Line.h"
+#include "geometric-drawer/GeometricDrawer.h"
+#include "geometric-drawer/FigureBuilder.h"
