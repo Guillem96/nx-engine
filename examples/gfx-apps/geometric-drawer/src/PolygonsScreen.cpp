@@ -24,7 +24,7 @@ void PolygonsScreen::build()
     Figure *ellipse = FigureBuilder()
                           .strokeColor(Colors::GREEN)
                           ->backgroundColor(Colors::DARK)
-                          ->center(Vector2(200.0f, 200.0f))
+                          ->center(Vector2(200.0f, 200.0f)) // This will be an ellipse because we are using center and radius methods
                           ->radius(Vector2(30.0f, 60.0f))
                           ->filled()
                           ->bordered()
@@ -32,7 +32,7 @@ void PolygonsScreen::build()
 
     Figure *rectangle = FigureBuilder()
                             .backgroundColor(Colors::RED)
-                            ->position(Vector2(400.0f, 400.0f))
+                            ->position(Vector2(400.0f, 400.0f)) // This will we a rectangle because we are using position and size methods
                             ->size(Vector2(200.0f, 300.0f))
                             ->filled()
                             ->build();
@@ -40,7 +40,7 @@ void PolygonsScreen::build()
     Figure *line = FigureBuilder()
                        .color(Colors::BLUE)
                        ->width(20.0f)
-                       ->point(new Vector2(10.0f, 80.0f))
+                       ->point(new Vector2(10.0f, 80.0f)) // This will be a line because it has 2 points
                        ->point(new Vector2(1000.0f, 80.0f))
                        ->build();
 
