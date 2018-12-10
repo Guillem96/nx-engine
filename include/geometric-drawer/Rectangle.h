@@ -2,6 +2,10 @@
 
 #include "geometric-drawer/Figure.h"
 
+/**
+ * @brief Shape representing a recatangle
+ * 
+ */
 class Rectangle : public Figure
 {
   private:
@@ -9,7 +13,11 @@ class Rectangle : public Figure
     Vector2 m_position;
 
   public:
-    // Position referes to bottom left vertex
+    /**
+     * @brief Construct a new Rectangle object
+     * Not recommended.
+     * @see FigureBuilder
+     */
     Rectangle(const Vector2 &position, const Color &strokeColor, const Color &backgroundColor, bool filled, bool bordered, const Vector2 &size);
 
     virtual ~Rectangle() {}
