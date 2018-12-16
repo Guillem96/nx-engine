@@ -8,6 +8,9 @@ NxEngine uses libnx, devkitARM and switch-SDL2.
 
 - [ScreenManager](docs/ScreenManager.md)
 - [InputManager](docs/InputManager.md)
+- [FontManager](docs/FontManager.md)
+- [SpriteRenderer](docs/SpriteRenderer.md)
+- [GeometricDrawer](docs/GeometricDrawer.md)
 
 ## Install dependencies
 
